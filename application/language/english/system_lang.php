@@ -1,7 +1,7 @@
 <?php #Version 3.0.1
 
-$lang['project_name'] = 'Priyadarshini Store Management';
-$lang['project_short_name'] = 'Priyadarshini';
+$lang['project_name'] = 'Punjab Police Housing Corporation Limited';
+$lang['project_short_name'] = 'PPHCL';
 //$lang['copyright'] = 'Copyright &copy;'.date('Y').' '.$this->lang->line('project_name');
 
 $lang['login_succesfully'] = 'Login Successfuly..';

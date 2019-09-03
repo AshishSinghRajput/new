@@ -93,13 +93,13 @@ class ChangePassword extends CI_Controller {
                     $post_data['updated_user_agent'] = $this->customlib->load_agent();
                     $post_data['updated_ip'] = $this->input->ip_address();
             
-                    $post_where['id'] = $login_info->users_id;
+                    $post_where['users_id'] = $login_info->users_id;
 		
                     $userDetails = $this->UsersMstModel->modify($post_data, $post_where);
 
                     $this->db->trans_complete();
 
-                    $this->session->set_flashdata('success_msg', $this->lang->line('password_updated'));        
+                    $this->session->set_flashdata('ses_success', $this->lang->line('password_updated'));        
                     redirect(base_url('ChangePassword'));
         
                 } else {        

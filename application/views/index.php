@@ -10,125 +10,111 @@
 	<meta name="keyword" content="<?php echo $page_val['keywords'];?>" />
 	<meta name="description" content="<?php echo $page_val['description'];?>" />
 	<link rel="shortcut icon" href="<?php echo base_url('site_folder/favicon.png');?>" type="image/x-icon" />
-			
-	<!-- Bootstrap core CSS-->
-	<link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet"/>
-	<!-- animate CSS-->
-	<link href="<?php echo base_url('assets/css/animate.css');?>" rel="stylesheet" type="text/css"/>
-	<!-- Icons CSS-->
-	<link href="<?php echo base_url('assets/css/icons.css');?>" rel="stylesheet" type="text/css"/>
-	<!-- Custom Style-->
-	<link href="<?php echo base_url('assets/css/app-style.css');?>" rel="stylesheet"/>  
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('global_assets/css/icons/icomoon/styles.min.css');?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/bootstrap_limitless.min.css');?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/layout.min.css');?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/components.min.css');?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/colors.min.css');?>" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
 </head>
 
-<body style="background: url(<?php echo base_url('site_folder/priyadarshini-background.jpg');?>) no-repeat bottom center;">
-<!-- start loader -->
-<div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-<!-- end loader -->
+<body class="bg-slate-800" style="background: url(<?php echo base_url('site_folder/background.jpg');?>) no-repeat bottom center;">
 
-<!-- Start wrapper-->
-<div id="wrapper">
-	<div class="card-authentication2 mx-auto my-5">
-	    <div class="card-group">
-	    	<div class="card mb-0">
-	    	   	<div class="bg-signin2"></div>
-	    		<div class="card-img-overlay rounded-left my-5">
-                	<p class="card-text text-white pt-3" style="text-align: center;"><img src="<?php echo base_url('site_folder/priyadarshini.png');?>" style="width: auto; height: 110px;" alt="logo" /></p>
-            	</div>
-	    	</div>
-	    	<div class="card mb-0 ">
-	    		<div class="card-body">
-	    			<div class="card-content p-3">
-	    				<?php /*<div class="text-center">
-					 		<img src="assets/images/logo-icon.png" alt="logo icon">
-					 	</div>
-						<div class="card-title text-uppercase text-center py-3">Sign In</div>*/?>
-						<form action="<?php echo base_url('Login');?>" method="post" enctype="multipart/form-data" accept-charset="utf-8">
-							<div class="form-group">
-								<div class="position-relative has-icon-left">
-									<label for="username" class="sr-only">Username <span class="text-hightlight">*</span></label>
-									<input type="text" id="username" name="username" class="form-control" placeholder="Username" value="<?php echo set_value('username'); ?>" autocomplete="off" />
-									<div class="form-control-position">
-										<i class="icon-user"></i>
-									</div>
-                                	<span class="badge badge-danger m-1"><?php echo form_error('username');?></span>
-								</div>
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+
+			<!-- Content area -->
+			<div class="content d-flex justify-content-center align-items-center">
+
+				<!-- Login card -->
+				<form class="login-form" action="<?php echo base_url('Login');?>" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+					<div class="card mb-0">
+						<div class="card-body">
+							<div class="text-center mb-3">
+								<p style="text-align: center;"><img src="<?php echo base_url('site_folder/pphcl.png');?>" style="width: auto; height: 40px;" alt="logo" /></p>
+								<?php /*<h5 class="mb-0">Login to your account</h5>
+								<span class="d-block text-muted">Your credentials</span>*/?>
 							</div>
-							<div class="form-group">
-								<div class="position-relative has-icon-left">
-									<label for="password" class="sr-only">Password <span class="text-hightlight">*</span></label>
-									<input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" autocomplete="off" />
-									<div class="form-control-position">
-										<i class="icon-lock"></i>
-									</div>
-                                	<span class="badge badge-danger m-1"><?php echo form_error('password');?></span>
+							<hr />
+							<div class="form-group form-group-feedback form-group-feedback-left">
+								<input type="text" id="username" name="username" class="form-control" placeholder="Username" value="<?php echo set_value('username'); ?>" autocomplete="off" />
+								<div class="form-control-feedback">
+									<i class="icon-user text-muted"></i>
 								</div>
+                                <span class="badge badge-danger m-1"><?php echo form_error('username');?></span>
 							</div>
-							<div class="form-group">
-								<div class="position-relative has-icon-left">
-									<p id="captImg"><?php echo $captchaImg; ?></p>
-									<label class="small">Can't read the image? click <a href="javascript:void(0);" class="refreshCaptcha">here</a> to refresh.</label>
-									<input type="hidden" id="base_url_captcha" value="<?= base_url('Login/refresh') ?>">
-									<input required="" autocomplete="off" type="text" class="form-control" name="captcha" placeholder="Type the characters you see in image">
-									<?= ($captcha_error ? "<lable class=\"small\"><p>You have mistyped the captcha.</p></lable>" : "") ?>
+
+							<div class="form-group form-group-feedback form-group-feedback-left">
+								<input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" autocomplete="off" />
+								<div class="form-control-feedback">
+									<i class="icon-lock2 text-muted"></i>
 								</div>
+								<span class="badge badge-danger m-1"><?php echo form_error('password');?></span>
 							</div>
-							<?php /*<div class="form-row mr-0 ml-0">
-								<div class="form-group col-6">
-									<div class="">
-										<input type="checkbox" id="user-checkbox" checked="" />
-										<label for="user-checkbox">Remember me</label>
-									</div>
+
+							<div class="form-group form-group-feedback form-group-feedback-left">
+								<p id="captImg"><?php echo $captchaImg; ?></p>
+								<label class="small">Can't read the image? click <a href="javascript:void(0);" class="refreshCaptcha">here</a> to refresh.</label>
+								<input type="hidden" id="base_url_captcha" value="<?= base_url('Login/refresh') ?>">
+								<input required="" autocomplete="off" type="text" class="form-control" name="captcha" placeholder="Type the characters you see in image">
+								<?= ($captcha_error ? "<lable class=\"small\"><p>You have mistyped the captcha.</p></lable>" : "") ?>
+							</div>
+
+							<div class="form-group">
+								<input type="submit" name="submit" value="Sign in" id="submit" class="btn btn-primary btn-block"  />
+							</div>
+
+							<?php /*<div class="form-group d-flex align-items-center">
+								<div class="form-check mb-0">
+									<label class="form-check-label">
+										<input type="checkbox" name="remember" class="form-input-styled" checked data-fouc>
+										Remember
+									</label>
 								</div>
-								<div class="form-group col-6 text-right">
-									<a href="authentication-reset-password2.html">Reset Password</a>
-								</div>
+
+								<a href="login_password_recover.html" class="ml-auto">Forgot password?</a>
 							</div>*/?>
-							<?php $submit = array('name'=>'submit', 'id'=>'submit', 'value'=>'Sign In', 'class'=>'btn btn-primary btn-block waves-effect waves-light');
-							  echo form_submit($submit);?>						
-							<?php /*<div class="text-center pt-3">
-							<p>or Sign in with</p>
-							<div class="form-row mt-4">
-								<div class="form-group mb-0 col-6">
-									<button type="button" class="btn bg-facebook text-white btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-								</div>
-								<div class="form-group mb-0 col-6 text-right">
-									<button type="button" class="btn bg-twitter text-white btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-								</div>
-							</div>
-							<hr>
-							<p class="text-dark">Do not have an account? <a href="authentication-signup2.html"> Sign Up here</a></p>
-						</div>*/?>
-					</form>
-				</div>
+						</div>
+					</div>
+				</form>
+				<!-- /login card -->
 			</div>
+			<!-- /content area -->
 		</div>
+		<!-- /main content -->
 	</div>
-</div>    
-<!--Start Back To Top Button-->
-<a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-<!--End Back To Top Button-->
-</div><!--wrapper-->
+	<!-- /page content -->
 
-<script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+	<!-- Core JS files -->
+	<script src="<?php echo base_url('global_assets/js/main/jquery.min.js');?>"></script>
+	<script src="<?php echo base_url('global_assets/js/main/bootstrap.bundle.min.js');?>"></script>
+	<script src="<?php echo base_url('global_assets/js/plugins/loaders/blockui.min.js');?>"></script>
+	<!-- /core JS files -->
 
-<!-- sidebar-menu js -->
-<script src="<?php echo base_url('assets/js/sidebar-menu.js');?>"></script>
+	<!-- Theme JS files -->
+	<script src="<?php echo base_url('global_assets/js/plugins/forms/styling/uniform.min.js');?>"></script>
 
-<!-- Custom scripts -->
-<script src="<?php echo base_url('assets/js/app-script.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/app.js');?>"></script>
+	<script src="<?php echo base_url('global_assets/js/demo_pages/login.js');?>"></script>
+	<!-- /theme JS files -->
 
-<script type="text/javascript">
-	$(document).ready(function () {
-		$('.refreshCaptcha').on('click', function () {
-			var base_url = $('#base_url_captcha').val();
-			$.get(base_url, function (data) {
-				$('#captImg').html(data);
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.refreshCaptcha').on('click', function () {
+				var base_url = $('#base_url_captcha').val();
+				$.get(base_url, function (data) {
+					$('#captImg').html(data);
+				});
 			});
-		});
-	})
-</script>
+		})
+	</script>
 </body>
 </html>

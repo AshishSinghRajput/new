@@ -118,7 +118,7 @@ class ManageUsers extends CI_Controller {
                 );
         $data['page_val'] = $page_val;        
         
-        $data['store_list'] = $this->StoreMstModel->get_select();
+        $data['department_list'] = $this->DepartmentMstModel->get_select();
 
         $data['users_type_list'] = $this->UsersTypeMstModel->get_select();
 
@@ -178,7 +178,7 @@ class ManageUsers extends CI_Controller {
 
             $this->db->trans_start();
 
-            $users_data['store_id'] = $this->input->post('store_id');
+            $users_data['department_id'] = $this->input->post('department_id');
             $users_data['name'] = $this->input->post('name');
             $users_data['images'] = $users_images;
             $users_data['thumbnail1'] = $users_images;
@@ -249,7 +249,7 @@ class ManageUsers extends CI_Controller {
         $users_id = base64_decode($users_id);
         $data['users_id'] = $users_id;
         
-        $data['store_list'] = $this->StoreMstModel->get_select();
+        $data['department_list'] = $this->DepartmentMstModel->get_select();
 
         $data['users_type_list'] = $this->UsersTypeMstModel->get_select();
 
@@ -322,7 +322,7 @@ class ManageUsers extends CI_Controller {
             
             $this->db->trans_start();
             
-            $users_data['store_id'] = $this->input->post('store_id');
+            $users_data['department_id'] = $this->input->post('department_id');
             $users_data['name'] = $this->input->post('name');
             if($users_images != '') {
                 $users_data['images'] = $users_images;
@@ -475,7 +475,7 @@ class ManageUsers extends CI_Controller {
 
 		$this->form_validation->set_message('required', '%s required');
         
-        $this->form_validation->set_rules('store_id', 'Store Name', 'trim|required');
+        $this->form_validation->set_rules('department_id', 'Department Name', 'trim|required');
         
         $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[255]');
         $this->form_validation->set_rules('mobile', 'Mobile', 'trim|required|numeric|exact_length[10]');

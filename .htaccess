@@ -12,4 +12,4 @@ SetEnv DB_PROD_DB cnvg_priyadarshani
 SetEnv DB_DEV_HOST localhost
 SetEnv DB_DEV_USER root
 SetEnv DB_DEV_PASS 
-SetEnv DB_DEV_DB cnvg_priyadarshini
+SetEnv DB_DEV_DB cnvg_pphc

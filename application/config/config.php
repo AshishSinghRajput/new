@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 if(ENVIRONMENT == 'development'):
-    $config['base_url'] = 'http://localhost/converge/priyadarshini/';    
+    $config['base_url'] = 'http://localhost/converge/PPHCL/';    
 elseif(ENVIRONMENT == 'production'):
     $config['base_url'] = 'http://cnvg.in/priyadarshini/';
 endif;

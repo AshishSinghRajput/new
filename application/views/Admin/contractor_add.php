@@ -1,0 +1,369 @@
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
+<!-- Page header -->
+<div class="page-header page-header-light">
+   <div class="page-header-content header-elements-md-inline">
+      <div class="page-title d-flex">
+         <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold"><?php echo $page_val['topbar'];?></span></h4>
+         <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+      </div>
+
+      <div class="header-elements d-none">
+         <div class="d-flex justify-content-center">
+         <a href="<?php echo base_url('Admin/Contractor');?>" class="btn btn-primary btn-sm waves-effect waves-light m-1">Back</a>
+         </div>
+      </div>
+   </div>
+
+   <?php /*<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+      <div class="d-flex">
+         <div class="breadcrumb">
+            <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+            <span class="breadcrumb-item active">Dashboard</span>
+         </div>
+
+         <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+      </div>
+
+      <div class="header-elements d-none">
+         <div class="breadcrumb justify-content-center">
+            <a href="#" class="breadcrumb-elements-item">
+               <i class="icon-comment-discussion mr-2"></i>
+               Support
+            </a>
+
+            <div class="breadcrumb-elements-item dropdown p-0">
+               <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
+                  <i class="icon-gear mr-2"></i>
+                  Settings
+               </a>
+
+               <div class="dropdown-menu dropdown-menu-right">
+                  <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
+                  <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
+                  <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>*/?>
+</div>
+<!-- /page header -->
+<div class="content">
+   <div class="row">
+      <div class="col-xl-12">
+         <div class="card">
+            <div class="card-header header-elements-sm-inline">
+               <div class="ml-12" style="width: 100%; margin-top: 10px;">
+                  <?php if ((!isset($this->session->flashdata)) && ($this->session->flashdata('ses_success'))) {?>
+                     <div id="alert_message" class="alert alert-primary border-0 alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+                        <span class="font-weight-semibold">Success !</span> <?php echo $this->session->flashdata('ses_success');?>
+                        </div>
+                  <?php }?>
+                  <?php if ((!isset($this->session->flashdata)) && ($this->session->flashdata('error_msg'))) {?>
+
+                     <div id="alert_message" class="alert alert-danger border-0 alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+                        <span class="font-weight-semibold">Error !</span> <?php echo $this->session->flashdata('error_msg');?>.
+                        </div>
+                  <?php }?>
+               </div>
+            </div>
+            <div class="card-body">
+            <form action="<?php echo base_url('Admin/Contractor/add'); ?>" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+               <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Firm Name <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $firm_name_value = '';
+                           if ($this->input->post('submit')) {
+                              $firm_name_value = $this->input->post('firm_name');
+                           } else if (!empty($supplier_info)) {
+                              $firm_name_value = $supplier_info->firm_name;
+                           } ?>
+                           <input type="text" required id="firm_name" name="firm_name" placeholder="Enter your owner name" class="form-control" maxlength="255" value="<?php echo $firm_name_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('firm_name'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Owner Name <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $owner_name_value = '';
+                           if ($this->input->post('submit')) {
+                              $owner_name_value = $this->input->post('owner_name');
+                           } else if (!empty($supplier_info)) {
+                              $owner_name_value = $supplier_info->owner_name;
+                           } ?>
+                           <input type="text" required id="owner_name" name="owner_name" placeholder="Enter your owner name" class="form-control" maxlength="255" value="<?php echo $owner_name_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('owner_name'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Firm Type <span class="text-hightlight">*</span></label>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                           <div class="">
+                              <?php $firm_type_value = '';
+                              if ($this->input->post('submit')) {
+                                 $firm_type_value = $this->input->post('firm_type');
+                              } else if (!empty($supplier_info)) {
+                                 $firm_type_value = $supplier_info->firm_type;
+                              } ?>
+                              <input type="radio" id="firm_type" name="firm_type" value="Individual" <?php if ($firm_type_value == '0') { ?>checked="checked" <?php } ?> />
+                              <label for="firm_type_hide">Individual</label>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                           <div class="">
+                              <input type="radio" id="firm_type" name="firm_type" value="Partnership" <?php if ($firm_type_value == '1') { ?>checked="checked" <?php } ?> />
+                              <label for="firm_type_visible">Partnership</label>
+                           </div>
+                        </div>
+                         <div class="col-md-4 col-sm-4 col-xs-4">
+                           <div class="">
+                              <input type="radio" id="firm_type" name="firm_type" value="Company" <?php if ($firm_type_value == '1') { ?>checked="checked" <?php } ?> />
+                              <label for="firm_type_visible">Company</label>
+                           </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <span class="badge badge-danger m-1"><?php echo form_error('firm_type'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Address <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $address_value = '';
+                           if ($this->input->post('submit')) {
+                              $address_value = $this->input->post('address');
+                           } else if (!empty($supplier_info)) {
+                              $address_value = $supplier_info->address;
+                           } ?>
+                           <input type="text" required id="address" name="address" placeholder="Enter your address" class="form-control" maxlength="255" value="<?php echo $address_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('address'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Mobile No. <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $mobile1_value = '';
+                           if ($this->input->post('submit')) {
+                              $mobile1_value = $this->input->post('mobile1');
+                           } else if (!empty($supplier_info)) {
+                              $mobile1_value = $supplier_info->mobile1;
+                           } ?>
+                           <input type="text" required id="mobile1" name="mobile1" placeholder="Enter mobile no. 1" class="form-control" minlength="10" maxlength="10" value="<?php echo $mobile1_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('mobile1'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">E-mail <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $email_value = '';
+                           if ($this->input->post('submit')) {
+                              $email_value = $this->input->post('email');
+                           } else if (!empty($supplier_info)) {
+                              $email_value = $supplier_info->email;
+                           } ?>
+                           <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id="email" name="email" placeholder="Enter e-mail" maxlength="255" class="form-control" value="<?php echo $email_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('email'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                 
+               </div>
+               
+               <div class="row">
+                  
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Website <span class="text-hightlight" style="display: none;">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $website_value = '';
+                           if ($this->input->post('submit')) {
+                              $website_value = $this->input->post('website');
+                           } else if (!empty($supplier_info)) {
+                              $website_value = $supplier_info->website;
+                           } ?>
+                           <input type="text" id="website" name="website" placeholder="Enter website" maxlength="255" class="form-control" value="<?php echo $website_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('website'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr />
+               <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">GSIN No. <span class="text-hightlight" style="display: none;">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $gsin_no_value = '';
+                           if ($this->input->post('submit')) {
+                              $gsin_no_value = $this->input->post('gsin_no');
+                           } else if (!empty($supplier_info)) {
+                              $gsin_no_value = $supplier_info->gsin_no;
+                           } ?>
+                           <input type="text" id="gsin_no" name="gsin_no" placeholder="Enter gsin no." maxlength="20" class="form-control" value="<?php echo $gsin_no_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('gsin_no'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">PAN No. <span class="text-hightlight" style="display: none;">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $pan_no_value = '';
+                           if ($this->input->post('submit')) {
+                              $pan_no_value = $this->input->post('pan_no');
+                           } else if (!empty($supplier_info)) {
+                              $pan_no_value = $supplier_info->pan_no;
+                           } ?>
+                           <input type="text" id="pan_no" name="pan_no" placeholder="Enter pan no." minlength="10" maxlength="10" class="form-control" value="<?php echo $pan_no_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('pan_no'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Aadhar No. <span class="text-hightlight" style="display: none;">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $aadhar_no_value = '';
+                           if ($this->input->post('submit')) {
+                              $aadhar_no_value = $this->input->post('aadhar_no');
+                           } else if (!empty($supplier_info)) {
+                              $aadhar_no_value = $supplier_info->aadhar_no;
+                           } ?>
+                           <input type="text" id="aadhar_no" name="aadhar_no" placeholder="Enter aadhar no." minlength="12" maxlength="12" class="form-control" value="<?php echo $aadhar_no_value; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('aadhar_no'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr />
+               <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Bank Name <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $select_bank_id = '';
+                           if ($this->input->post('submit')) {
+                              $select_bank_id = $this->input->post('bank_id');
+                           } else if (!empty($supplier_info)) {
+                              $select_bank_id = $supplier_info->bank_id;
+                           } ?>
+                           <select class="form-control" id="bank_id" name="bank_id" required>
+                              <option value="">Select Bank</option>
+                              <?php
+                              if (!empty($bank_list)) {
+                                 foreach ($bank_list as $value) { ?>
+                                    <option <?php if ($select_bank_id == $value->bank_id) echo "selected"; ?> value="<?php echo $value->bank_id; ?>"><?php echo $value->bank; ?></option>
+                                 <?php }
+                              } ?>
+                           </select>
+                           <span class="badge badge-danger m-1"><?php echo form_error('bank_id'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Account No. <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $account_no = '';
+                           if ($this->input->post('submit')) {
+                              $account_no = $this->input->post('account_no');
+                           } else if (!empty($supplier_info)) {
+                              $account_no = $supplier_info->account_no;
+                           } ?>
+                           <input type="text" id="account_no" name="account_no" placeholder="Enter Account No." class="form-control" value="<?php echo $account_no; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('account_no'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">IFSC Code <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $ifsc_code = '';
+                           if ($this->input->post('submit')) {
+                              $ifsc_code = $this->input->post('ifsc_code');
+                           } else if (!empty($supplier_info)) {
+                              $ifsc_code = $supplier_info->ifsc_code;
+                           } ?>
+                           <input type="text" id="ifsc_code" name="ifsc_code" placeholder="Enter IFSC Code" class="form-control" value="<?php echo $ifsc_code; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('ifsc_code'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="form-group row">
+                        <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Branch <span class="text-hightlight">*</span></label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $branch = '';
+                           if ($this->input->post('submit')) {
+                              $branch = $this->input->post('branch');
+                           } else if (!empty($supplier_info)) {
+                              $branch = $supplier_info->branch;
+                           } ?>
+                           <input type="text" id="branch" name="branch" placeholder="Enter branch" class="form-control" value="<?php echo $branch; ?>" />
+                           <span class="badge badge-danger m-1"><?php echo form_error('branch'); ?></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+               <hr />
+               <div class="form-group row">
+                  <label class="col-md-12 col-sm-12 col-xs-12 col-form-label"></label>
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                     <input type="submit" name="submit" class="btn btn-success" value="Add New">
+                  </div>
+               </div>
+            </form>
+         </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script type="text/javascript">
+   function checkfile(sender, str) {
+      var validExts = new Array('.jpg', '.jpeg', '.png');
+      var fileExt = sender.value;
+      fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+      if (validExts.indexOf(fileExt) < 0) {
+         alert("Invalid file selected, valid files are of " +
+            validExts.toString() + " types.");
+         document.getElementById(str).value = '';
+         return false;
+      } else return true;
+   }
+</script>
+<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $('#state_name').on("change", function(event) {
+         var data = this.value;
+         //alert('<?php echo base_url(); ?>Ajaxloader/get_city/'+data)  ;
+         $.get('<?php echo base_url(); ?>Ajaxloader/get_city/' + data, function(resp) {
+            $('#city_name').html(resp);
+         });
+      });
+   });
+</script>
