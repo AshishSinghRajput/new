@@ -6,4 +6,4 @@ $autoload['drivers'] = array();
 $autoload['helper'] = array('url', 'captcha', 'form', 'string', 'bnb_helper');
 $autoload['config'] = array();
 $autoload['language'] = array('system_lang');
-$autoload['model'] = array('FinyearMstModel', 'UsersMstModel', 'UsersTypeMstModel', 'UsersPermissionMstModel', 'UsersLogsMstModel', 'DepartmentMstModel', 'LocationMstModel', 'BankMstModel', 'PaymentModeMstModel', 'ProjectsMstModel', 'ProjectsActivitesMstModel','ContractorMstModel','SupervisorMstModel','DesignationMstModel');
+$autoload['model'] = array('FinyearMstModel', 'UsersMstModel', 'UsersTypeMstModel', 'UsersPermissionMstModel', 'UsersLogsMstModel', 'DepartmentMstModel', 'LocationMstModel', 'BankMstModel', 'PaymentModeMstModel', 'ProjectsMstModel', 'ProjectsActivitesMstModel','ContractorMstModel','ContractorBankMstModel','SupervisorMstModel','DesignationMstModel', 'FundReceivedMstModel', 'ExpenditureDetailsMstModel', 'InterestMstModel');

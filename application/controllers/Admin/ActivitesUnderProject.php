@@ -80,6 +80,8 @@ class ActivitesUnderProject extends CI_Controller {
         
         $data['project_activity_info'] = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '',$project_activity_id)['0'];
        
+        $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id);
+       
         $this->load->view('layout/header', $data);
         $this->load->view('Admin/projects_activites_view', $data);
         $this->load->view('layout/footer', $data);
@@ -118,6 +120,12 @@ class ActivitesUnderProject extends CI_Controller {
                 );
         $data['page_val'] = $page_val;        
         
+        $data['projects_list'] = $this->ProjectsMstModel->get_record($login_info->department_id);
+        
+        $data['contractor_list'] = $this->UsersMstModel->get_select($login_info->department_id, '5');
+        
+        $data['supervisor_list'] = $this->UsersMstModel->get_select($login_info->department_id, '4');
+        
         $this->project_activity_validation(false);		
 		if($this->form_validation->run()==false) {
             if(!$this->input->post('submit')) {
@@ -134,6 +142,7 @@ class ActivitesUnderProject extends CI_Controller {
         } else {
             $this->db->trans_start();
 
+            $fund_received_data['department_id'] = $login_info->department_id;
             $project_activity_data['project_id'] = $this->input->post('project_id');
             $project_activity_data['activity_name'] = $this->input->post('activity_name'); 
             $project_activity_data['address'] = $this->input->post('address');       
@@ -336,8 +345,8 @@ class ActivitesUnderProject extends CI_Controller {
 
 		$this->form_validation->set_message('required', '%s required');
         
-        $this->form_validation->set_rules('project_id', 'Project Name', 'trim|required');
-        $this->form_validation->set_rules('activity_name', 'Name of the work', 'trim|required|max_length[255]');
+        $this->form_validation->set_rules('project_id', 'Scheme Name', 'trim|required');
+        $this->form_validation->set_rules('activity_name', 'Projects', 'trim|required|max_length[255]');
         $this->form_validation->set_rules('address', 'Address', 'trim|max_length[255]');
         $this->form_validation->set_rules('funds_allocated', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('sanction_amount', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[10]');

@@ -79,12 +79,9 @@
                               <thead>
                                  <tr>
                                     <th class="text-center">Sr.No.</th>
-                                    <th class="text-center">Supplier Type</th>
-
-
+                                    <th class="text-center">Firm Type</th>
                                     <th class="text-center">Firm Name</th>
                                     <th class="text-center">Owner Name</th>
-
                                     <th class="text-center">Address</th>
                                     <th class="text-center">Mobile</th>
                                     <th class="text-center">E-mail</th>
@@ -117,10 +114,10 @@
                                                    <a href="#" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
                                                    <?php }?>
                                                 <?php if($load_permission->is_delete == '1') {?>
-                                                   <a onclick="return confirm('<?php echo $this->lang->line('delete_confirmation');?>')" href="<?php echo base_url('Admin/Contractor/del/'.base64_encode($value->contractor_id));?>" class="dropdown-item"><i class="icon-trash-alt"></i> Delete</a>
+                                                   <a onclick="return confirm('<?php echo $this->lang->line('delete_confirmation');?>')" href="<?php echo base_url('Admin/Contractor/del/'.base64_encode($value->users_id));?>" class="dropdown-item"><i class="icon-trash-alt"></i> Delete</a>
                                                 <?php }?>
                                                 <?php if($load_permission->is_view == '1') {?>
-                                                   <a href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>" class="dropdown-item"><i class="icon-three-bars"></i> View</a>
+                                                   <a href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->users_id));?>" class="dropdown-item"><i class="icon-three-bars"></i> View</a>
                                                 <?php }?>
                                              </div>
                                           </div>

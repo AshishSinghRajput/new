@@ -76,7 +76,7 @@
                   <div class="row">
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Project Name <span class="text-hightlight">*</span></label>
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheme Name <span class="text-hightlight">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <?php $project_name_value = '';
                                  if($this->input->post('submit')) {
@@ -116,6 +116,21 @@
                                     } ?>
                                  <input type="text" name="funds_received" id="funds_received" class="form-control" value="<?php echo $funds_received_value; ?>" maxlength="10" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('funds_received'); ?></span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Interest <span class="text-hightlight">*</span></label>
+                           <div class="col-md-12 col-sm-12 col-xs-12">
+                              <?php $interest_value = '0';
+                                    if ($this->input->post('submit')) {
+                                       $interest_value = $this->input->post('interest');
+                                    } else if (!empty($projects_info)) {
+                                       $interest_value = $projects_info->interest;
+                                    } ?>
+                                 <input type="text" name="interest" id="interest" class="form-control" value="<?php echo $interest_value; ?>" maxlength="10" />
+                                 <span class="badge badge-danger m-1"><?php echo form_error('interest'); ?></span>
                            </div>
                         </div>
                      </div>
@@ -163,6 +178,66 @@
                               <span class="badge badge-danger m-1"><?php echo form_error('remarks'); ?></span>
                            </div>
                         </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12 col-sm-12 col-xs-12">
+                        <table class="table datatable-basic" cellpadding="10">
+                           <thead>
+                              <tr>
+                                 <th class="text-center" style="padding: 5px;">Bank Name</th>
+                                 <th class="text-center" style="padding: 5px;">Account No.</th>
+                                 <th class="text-center" style="padding: 5px;">IFSC Code</th>
+                                 <th class="text-center" style="padding: 5px;">Branch</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <?php for($row = 0; $row < 5; $row++) {?>
+                              <tr>
+                                 <td style="padding: 5px;"><?php $select_bank_id = '';
+                                          if ($this->input->post('submit')) {
+                                             $select_bank_id = $this->input->post('bank_id_'.$row);
+                                          } else if (!empty($projects_bank_info)) {
+                                             $select_bank_id = $projects_bank_info->bank_id;
+                                          } ?>
+                                          <select class="form-control" id="bank_id_<?php echo $row;?>" name="bank_id_<?php echo $row;?>">
+                                             <option value="">Select Bank</option>
+                                             <?php
+                                             if (!empty($bank_list)) {
+                                                foreach ($bank_list as $value) { ?>
+                                                   <option <?php if ($select_bank_id == $value->bank_id) echo "selected"; ?> value="<?php echo $value->bank_id; ?>"><?php echo $value->bank; ?></option>
+                                                <?php }
+                                             } ?>
+                                          </select>
+                                          <span class="badge badge-danger m-1"><?php echo form_error('bank_id_'.$row); ?></span></td>
+                                 <td style="padding: 5px;"><?php $account_no = '';
+                                          if ($this->input->post('submit')) {
+                                             $account_no = $this->input->post('account_no_'.$row);
+                                          } else if (!empty($projects_bank_info)) {
+                                             $account_no = $projects_bank_info->account_no;
+                                          } ?>
+                                          <input type="text" id="account_no_<?php echo $row;?>" name="account_no_<?php echo $row;?>" placeholder="Enter Account No." class="form-control" value="<?php echo $account_no; ?>" />
+                                          <span class="badge badge-danger m-1"><?php echo form_error('account_no_'.$row); ?></span></td>
+                                 <td style="padding: 5px;"><?php $ifsc_code = '';
+                                          if ($this->input->post('submit')) {
+                                             $ifsc_code = $this->input->post('ifsc_code_'.$row);
+                                          } else if (!empty($projects_bank_info)) {
+                                             $ifsc_code = $projects_bank_info->ifsc_code;
+                                          } ?>
+                                          <input type="text" id="ifsc_code_<?php echo $row;?>" name="ifsc_code_<?php echo $row;?>" placeholder="Enter IFSC Code" class="form-control" value="<?php echo $ifsc_code; ?>" />
+                                          <span class="badge badge-danger m-1"><?php echo form_error('ifsc_code_'.$row); ?></span></td>
+                                 <td style="padding: 5px;"><?php $branch = '';
+                                          if ($this->input->post('submit')) {
+                                             $branch = $this->input->post('branch_'.$row);
+                                          } else if (!empty($projects_bank_info)) {
+                                             $branch = $projects_bank_info->branch;
+                                          } ?>
+                                          <input type="text" id="branch_<?php echo $row;?>" name="branch_<?php echo $row;?>" placeholder="Enter branch" class="form-control" value="<?php echo $branch; ?>" />
+                                          <span class="badge badge-danger m-1"><?php echo form_error('branch_'.$row); ?></span></td>
+                              </tr>
+                              <?php }?>
+                           </tbody>
+                        </table>
                      </div>
                   </div>
                   <div class="row">

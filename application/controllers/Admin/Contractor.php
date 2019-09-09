@@ -39,14 +39,12 @@ class Contractor extends CI_Controller {
                 );
         $data['page_val'] = $page_val;
         
-        $data['contractor_info'] = $this->ContractorMstModel->get_record();
+        $data['contractor_info'] = $this->ContractorMstModel->get_record($login_info->department_id);
 
         $this->load->view('layout/header', $data);
         $this->load->view('Admin/contractor_list', $data);
         $this->load->view('layout/footer', $data);
     }
-    
-    
     
     public function add() {
         $data['controller'] = $this;
@@ -117,10 +115,6 @@ class Contractor extends CI_Controller {
             $contractor_data['gsin_no'] = $this->input->post('gsin_no');
             $contractor_data['pan_no'] = $this->input->post('pan_no');
             $contractor_data['aadhar_no'] = $this->input->post('aadhar_no');
-            $contractor_data['bank_id'] = $this->input->post('bank_id');
-            $contractor_data['account_no'] = $this->input->post('account_no');
-            $contractor_data['ifsc_code'] = $this->input->post('ifsc_code');
-            $contractor_data['branch'] = $this->input->post('branch');
             $contractor_data['created_date'] = date('Y-m-d', mktime(gmdate('H')+5, gmdate('i')+30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
             $contractor_data['created_time'] = date('H:i:s', mktime(gmdate('H')+5, gmdate('i')+30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
             $contractor_data['created_by'] = $login_info->users_id;
@@ -148,7 +142,7 @@ class Contractor extends CI_Controller {
         }
     }
 
-     public function del($supplier_id) {
+     public function del($contractor_id) {
         $data['controller'] = $this;
 
         $login_info = $this->session->userdata('priyadarshini_admin_login_detail');        
@@ -181,12 +175,12 @@ class Contractor extends CI_Controller {
                 );
         $data['page_val'] = $page_val;        
         
-        $supplier_id = base64_decode($supplier_id);
-        $data['supplier_id'] = $supplier_id;
+        $contractor_id = base64_decode($contractor_id);
+        $data['contractor_id'] = $contractor_id;
         
-        $supplier_where['contractor_id'] = $supplier_id;
+        $supplier_where['contractor_id'] = $contractor_id;
         
-        $supplier_info = $this->ContractorMstModel->get_record($supplier_id)['0'];
+        $supplier_info = $this->ContractorMstModel->get_record($login_info->department_id, '', $contractor_id)['0'];
 
         $this->ContractorMstModel->delete($supplier_where);
         
@@ -197,7 +191,7 @@ class Contractor extends CI_Controller {
     }
     
 
-    public function view($supplier_id) {
+    public function view($contractor_id) {
         $data['controller'] = $this;
 
         $login_info = $this->session->userdata('priyadarshini_admin_login_detail');        
@@ -226,10 +220,12 @@ class Contractor extends CI_Controller {
                 );
         $data['page_val'] = $page_val;
         
-        $supplier_id = base64_decode($supplier_id);
-        $data['supplier_id'] = $supplier_id;
+        $contractor_id = base64_decode($contractor_id);
+        $data['contractor_id'] = $contractor_id;
         
-        $data['supplier_info'] = $this->ContractorMstModel->get_record($supplier_id)['0'];
+        $data['supplier_info'] = $this->ContractorMstModel->get_record($login_info->department_id, '', $contractor_id)['0'];
+       
+        $data['project_activity_info'] = $this->ProjectsActivitesMstModel->get_record($login_info->department_id);
        
         $this->load->view('layout/header', $data);
         $this->load->view('Admin/contractor_view', $data);

@@ -28,7 +28,7 @@ class Projects extends CI_Controller {
         $main_menu['active'] = 'Projects';
 		$this->session->set_userdata($main_menu);
 		
-		$topbar = 'Projects';
+		$topbar = 'Schemes';
 		
 		$page_val = array(
                     'topbar'=>$topbar,
@@ -64,7 +64,7 @@ class Projects extends CI_Controller {
         $main_menu['active'] = 'Projects';
 		$this->session->set_userdata($main_menu);
 		
-		$topbar = 'Projects';
+		$topbar = 'Schemes';
 		
 		$page_val = array(
                     'topbar'=>$topbar,
@@ -79,6 +79,14 @@ class Projects extends CI_Controller {
         $data['project_id'] = $project_id;
         
         $data['projects_info'] = $this->ProjectsMstModel->get_record($login_info->department_id, $project_id)['0'];
+       
+        $data['project_activity_list'] = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, $project_id);
+       
+        $data['fund_received_info'] = $this->FundReceivedMstModel->get_record($login_info->department_id, $project_id);
+       
+        $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id, $project_id);
+       
+        $data['interest_info'] = $this->InterestMstModel->get_record($login_info->department_id, $project_id);
        
         $this->load->view('layout/header', $data);
         $this->load->view('Admin/projects_view', $data);
@@ -107,7 +115,7 @@ class Projects extends CI_Controller {
         $main_menu['active'] = 'Projects';
 		$this->session->set_userdata($main_menu);
 		
-		$topbar = 'Projects';
+		$topbar = 'Schemes';
 		
 		$page_val = array(
                     'topbar'=>$topbar,
@@ -116,7 +124,9 @@ class Projects extends CI_Controller {
                     'keywords'=>base_url().', '.$this->lang->line('project_short_name').', '.$this->lang->line('project_name').','.$topbar,
                     'description'=>base_url().', '.$this->lang->line('project_short_name').', '.$this->lang->line('project_name').','.$topbar
                 );
-        $data['page_val'] = $page_val;        
+        $data['page_val'] = $page_val; 
+        
+        $data['bank_list'] = $this->BankMstModel->get_select();       
         
         $this->project_validation(false);		
 		if($this->form_validation->run()==false) {
@@ -136,10 +146,11 @@ class Projects extends CI_Controller {
 
             $projects_data['department_id'] = $login_info->department_id;            
             $projects_data['project_name'] = $this->input->post('project_name');            
-            $projects_data['sanctioned_funds'] = $this->input->post('sanctioned_funds');            
-            $projects_data['funds_received'] = $this->input->post('funds_received');            
+            $projects_data['sanctioned_funds'] = $this->input->post('sanctioned_funds');
+            $projects_data['funds_received'] = $this->input->post('funds_received');           
+            $projects_data['interest'] = $this->input->post('interest');                 
             $projects_data['expenditure'] = $this->input->post('expenditure');            
-            $projects_data['funds_available'] = $this->input->post('funds_available');            
+            $projects_data['funds_available'] = $this->input->post('funds_available');
             $projects_data['remarks'] = $this->input->post('remarks');
             $projects_data['status_id'] = 'Pending';
             $projects_data['status_date'] = date('Y-m-d', mktime(gmdate('H') + 5, gmdate('i') + 30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
@@ -193,7 +204,7 @@ class Projects extends CI_Controller {
         $main_menu['active'] = 'Projects';
 		$this->session->set_userdata($main_menu);
 		
-		$topbar = 'Projects';
+		$topbar = 'Schemes';
 		
 		$page_val = array(
                     'topbar'=>$topbar,
@@ -206,6 +217,8 @@ class Projects extends CI_Controller {
         
         $project_id = base64_decode($project_id);
         $data['project_id'] = $project_id;
+
+        $data['bank_list'] = $this->BankMstModel->get_select();
         
         $this->project_validation(false);		
 		if($this->form_validation->run()==false) {
@@ -226,10 +239,11 @@ class Projects extends CI_Controller {
             
             $projects_data['department_id'] = $login_info->department_id;            
             $projects_data['project_name'] = $this->input->post('project_name');            
-            $projects_data['sanctioned_funds'] = $this->input->post('sanctioned_funds');            
+            $projects_data['sanctioned_funds'] = $this->input->post('sanctioned_funds');
             $projects_data['funds_received'] = $this->input->post('funds_received');            
+            $projects_data['interest'] = $this->input->post('interest');                 
             $projects_data['expenditure'] = $this->input->post('expenditure');            
-            $projects_data['funds_available'] = $this->input->post('funds_available');            
+            $projects_data['funds_available'] = $this->input->post('funds_available');
             $projects_data['remarks'] = $this->input->post('remarks');
             /*$projects_data['status_id'] = 'Pending';
             $projects_data['status_date'] = date('Y-m-d', mktime(gmdate('H') + 5, gmdate('i') + 30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
@@ -280,7 +294,7 @@ class Projects extends CI_Controller {
         $main_menu['active'] = 'Projects';
 		$this->session->set_userdata($main_menu);
 		
-		$topbar = 'Projects';
+		$topbar = 'Schemes';
 		
 		$page_val = array(
                     'topbar'=>$topbar,
@@ -311,9 +325,10 @@ class Projects extends CI_Controller {
 
 		$this->form_validation->set_message('required', '%s required');
         
-        $this->form_validation->set_rules('project_name', 'Project Name', 'trim|required|max_length[255]');
+        $this->form_validation->set_rules('project_name', 'Scheme Name', 'trim|required|max_length[255]');
         $this->form_validation->set_rules('sanctioned_funds', 'Sanctioned funds', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('funds_received', 'Funds Received', 'trim|required|numeric|min_length[1]|max_length[10]');
+        $this->form_validation->set_rules('interest', 'Interest', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('expenditure', 'Expenditure Incurred', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('funds_available', 'Funds available', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('remarks', 'Remarks', 'trim|max_length[255]');

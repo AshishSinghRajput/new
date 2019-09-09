@@ -78,17 +78,17 @@
                      <table class="table datatable-basic table-bordered">
                         <thead>
                            <tr>
-                              <th class="text-center">Sr.No.</th>
-                              <th class="text-center">Project Name</th>
-                              <th class="text-center">Name of the work</th>
+                              <th class="text-center">Sr.</th>
+                              <th class="text-center">Scheme Name</th>
+                              <th class="text-center">Projects</th>
                               <th class="text-center">Address</th>
+                              <th class="text-center">Name of Contractor</th>
+                              <th class="text-center">Name of Supervisor</th>
                               <th class="text-center">Funds allocated</th>
                               <th class="text-center">Technical Sanction Amount</th>
                               <th class="text-center">DNIT Amount</th>
                               <th class="text-center">Allotment Below / above</th>
                               <th class="text-center">Allotment Amount</th>
-                              <th class="text-center">Name of Contractor</th>
-                              <th class="text-center">Name of Supervisor</th>
                               <th class="text-center">Date of Start</th>
                               <th class="text-center">Scheduled Date of Completion</th>
                               <th class="text-center">Extension if any</th>
@@ -109,20 +109,20 @@
                                         if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></td>
                               <td><?php echo $value->activity_name;?></td>
                               <td><?php echo $value->address;?></td>
-                              <td><?php echo $value->funds_allocated;?></td>
-                              <td><?php echo $value->sanction_amount;?></td>
-                              <td><?php echo $value->dnit_amount;?></td>
-                              <td><?php echo $value->allotment_below_above;?></td>
-                              <td><?php echo $value->allotment_amount;?></td>
                               <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
-                                        if(!empty($contractor_info)) { echo $contractor_info['0']->name;}?></td>
+                                        if(!empty($contractor_info)) {?><a target="_blank" href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?></td>
                               <td><?php $supervisor_info = $this->UsersMstModel->get_record($value->supervisor_id);
                                         if(!empty($supervisor_info)) { echo $supervisor_info['0']->name;}?></td>
+                              <td><?php echo $this->customlib->inr_format($value->funds_allocated);?></td>
+                              <td><?php echo $this->customlib->inr_format($value->sanction_amount);?></td>
+                              <td><?php echo $this->customlib->inr_format($value->dnit_amount);?></td>
+                              <td><?php echo $this->customlib->inr_format($value->allotment_below_above);?></td>
+                              <td><?php echo $this->customlib->inr_format($value->allotment_amount);?></td>
                               <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->date_start);?></td>
                               <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->scheduled_date_completion);?></td>
                               <td><?php echo $value->extension;?></td>
                               <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->actual_date_completion);?></td>
-                              <td><?php echo $value->expenditure_released;?></td>
+                              <td><?php echo $this->customlib->inr_format($value->expenditure_released);?></td>
                               <td><?php echo $value->remarks;?></td>
                               <td><?php if($value->status_id == 'Pending') {?>
                                     <span class="badge bg-grey-400"><?php echo $value->status_id;?></span>

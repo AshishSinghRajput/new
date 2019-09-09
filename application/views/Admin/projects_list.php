@@ -78,15 +78,16 @@
                      <table class="table datatable-basic table-bordered">
                         <thead>
                            <tr>
-                              <th class="text-center">Sr.No.</th>
-                              <th class="text-center">Project Name</th>
+                              <th class="text-center" style="width: 5%;">Sr.</th>
+                              <th class="text-center" style="width: 30%;">Scheme Name</th>
                               <th class="text-center">Sanctioned funds</th>
                               <th class="text-center">Funds Received</th>
+                              <th class="text-center">Interest</th>
                               <th class="text-center">Expenditure Incurred</th>
                               <th class="text-center">Funds available</th>
-                              <th class="text-center">Remarks</th>
+                              <?php /*<th class="text-center">Remarks</th>
                               <th class="text-center">Status</th>
-                              <th class="text-center">Cancel</th>
+                              <th class="text-center">Cancel</th>*/?>
                               <th class="text-center">Action</th>
                            </tr>
                         </thead>
@@ -95,12 +96,13 @@
                               foreach($projects_info as $value) {?>
                            <tr>
                               <td><?php echo $sr; $sr++; //$value->project_id;?></td>
-                              <td><?php echo $value->project_name;?></td>
-                              <td class="text-right"><?php echo $value->sanctioned_funds;?></td>
-                              <td class="text-right"><?php echo $value->funds_received;?></td>
-                              <td class="text-right"><?php echo $value->expenditure;?></td>
-                              <td class="text-right"><?php echo $value->funds_available;?></td>
-                              <td><?php echo $value->remarks;?></td>
+                              <td><a href="<?php echo base_url('Admin/Projects/view/'.base64_encode($value->project_id));?>"><?php echo $value->project_name;?></a></td>
+                              <td class="text-right"><?php echo $this->customlib->inr_format($value->sanctioned_funds);?></td>
+                              <td class="text-right"><?php echo $this->customlib->inr_format($value->funds_received);?></td>
+                              <td class="text-right"><?php echo $this->customlib->inr_format($value->interest);?></td>
+                              <td class="text-right"><?php echo $this->customlib->inr_format($value->expenditure);?></td>
+                              <td class="text-right"><?php echo $this->customlib->inr_format($value->funds_available);?></td>
+                              <?php /*<td><?php echo $value->remarks;?></td>
                               <td><?php if($value->status_id == 'Pending') {?>
                                     <span class="badge bg-grey-400"><?php echo $value->status_id;?></span>
                                  <?php } else if($value->status_id == 'In-Progress') {?>
@@ -111,7 +113,7 @@
                                     <span class="badge badge-danger"><?php echo $value->status_id;?></span>
                                  <?php }?>                              
                               </td>
-                              <td class="text-center"><?php if ($value->is_cancel == 'Yes') { ?><span class="badge badge-danger">Yes</span><?php } else if ($value->is_cancel == 'No') { ?><span class="badge badge-primary">No</span><?php } ?></td>                                       
+                              <td class="text-center"><?php if ($value->is_cancel == 'Yes') { ?><span class="badge badge-danger">Yes</span><?php } else if ($value->is_cancel == 'No') { ?><span class="badge badge-primary">No</span><?php } ?></td>*/?>
                               <td class="text-center">
                                  <div class="list-icons">
                                     <div class="list-icons-item dropdown">

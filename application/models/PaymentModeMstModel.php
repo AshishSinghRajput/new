@@ -5,7 +5,7 @@ class PaymentModeMstModel extends CI_Model {
     private $table_name = 'payment_mode';
 
     public function get_record($payment_mode_id = '') {
-        $query = "SELECT `payment_mode_id`, `payment_mode`, `is_default`, `heading`, `images`, `thumbnail1`, `thumbnail2`, `description`, `is_store`, `store_priority`, `is_app`, `app_priority`, `is_web`, `web_priority`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip` FROM `payment_mode` ";
+        $query = "SELECT `payment_mode_id`, `payment_mode`, `display`, `priority`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip` FROM `payment_mode` ";
         $is_where = '';
         if(($payment_mode_id != '') && ($payment_mode_id != '0') && ($payment_mode_id != 'null')) {
             if($is_where == '') {
@@ -23,8 +23,8 @@ class PaymentModeMstModel extends CI_Model {
     
     public function get_is_store_select() {
         $query = "SELECT `payment_mode_id`, `payment_mode` FROM `payment_mode` ";
-        $query.= "WHERE (`is_store` = '1') ";
-        $query.= "ORDER BY `store_priority` DESC, `payment_mode`";
+        $query.= "WHERE (`display` = '1') ";
+        $query.= "ORDER BY `priority` DESC, `payment_mode`";
         $results = $this->db->query($query);
 		return $results->result();
     }

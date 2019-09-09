@@ -76,7 +76,7 @@
                   <div class="row">
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Project Name <span class="text-hightlight">*</span></label>
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheme Name <span class="text-hightlight">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <select class="form-control" id="project_id" name="project_id" required>
                                  <?php $select_project_id = '';
@@ -85,7 +85,7 @@
                                        } else if(!empty($project_activity_info)) {
                                           $select_project_id = $project_activity_info->project_id;
                                        }?>
-                                 <option <?php if($select_project_id == '') {?>selected="selected"<?php }?> value="">Select Project</option>
+                                 <option <?php if($select_project_id == '') {?>selected="selected"<?php }?> value="">Select Scheme</option>
                                  <?php 
                                  if(!empty($projects_list)) {
                                        foreach ($projects_list as $value) { ?>
@@ -99,7 +99,7 @@
                      </div>
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Name of the work <span class="text-hightlight">*</span></label>
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Projects <span class="text-hightlight">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <?php $activity_name_value = '';
                                  if($this->input->post('submit')) {

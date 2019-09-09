@@ -5,7 +5,7 @@ class ProjectsMstModel extends CI_Model {
     private $table_name = 'projects';
 
     public function get_record($department_id, $project_id = '') {
-        $query = "SELECT `project_id`, `department_id`, `project_name`, `sanctioned_funds`, `funds_received`, `expenditure`, `funds_available`, `remarks`, `status_id`, `status_date`, `status_remarks`, `is_cancel`, `cancel_date`, `cancel_reason`, `finyear_id`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip` FROM `projects` ";
+        $query = "SELECT `project_id`, `department_id`, `project_name`, `sanctioned_funds`, `funds_received`, `interest`, `expenditure`, `funds_available`, `remarks`, `status_id`, `status_date`, `status_remarks`, `is_cancel`, `cancel_date`, `cancel_reason`, `finyear_id`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip` FROM `projects` ";
         $query.= "WHERE (`department_id` = '".$department_id."') ";
         if(($project_id != '') && ($project_id != '0') && ($project_id != 'null')) {
             $query.= "AND (`project_id` = '".$project_id."') ";

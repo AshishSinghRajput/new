@@ -39,9 +39,9 @@ body {
 }
 
 .content {
-    padding: 1.25rem 1.25rem;
+    padding: 10px;
     -ms-flex-positive: 1;
-    flex-grow: 1
+    /*flex-grow: 1*/
 }
 
 .content::after {

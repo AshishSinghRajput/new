@@ -1,0 +1,15 @@
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+SetEnv DB_PROD_HOST localhost
+SetEnv DB_PROD_USER cnvg_pphclusr
+SetEnv DB_PROD_PASS lR[vdtU91+OX
+SetEnv DB_PROD_DB cnvg_pphcl
+
+SetEnv DB_DEV_HOST localhost
+SetEnv DB_DEV_USER root
+SetEnv DB_DEV_PASS 
+SetEnv DB_DEV_DB cnvg_pphc
