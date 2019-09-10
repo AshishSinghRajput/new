@@ -220,11 +220,13 @@ class Projects extends CI_Controller {
 
         $data['bank_list'] = $this->BankMstModel->get_select();
         
+        $data['projects_info'] = $this->ProjectsMstModel->get_record($login_info->department_id, $project_id)['0'];
+
+        $data['projects_bank_info'] = $this->ProjectsBankMstModel->get_record($login_info->department_id, $project_id);
+
         $this->project_validation(false);		
 		if($this->form_validation->run()==false) {
             if(!$this->input->post('submit')) {
-                $data['projects_info'] = $this->ProjectsMstModel->get_record($login_info->department_id, $project_id)['0'];
-
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/projects_edit', $data);
                 $this->load->view('layout/footer', $data);
@@ -332,6 +334,16 @@ class Projects extends CI_Controller {
         $this->form_validation->set_rules('expenditure', 'Expenditure Incurred', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('funds_available', 'Funds available', 'trim|required|numeric|min_length[1]|max_length[10]');
         $this->form_validation->set_rules('remarks', 'Remarks', 'trim|max_length[255]');
+        
+        for($row = 0; $row < 5; $row++) {
+            if($this->input->post('bank_id_'.$row) != '') {
+                $this->form_validation->set_rules('bank_id_'.$row, 'Bank Name', 'trim|required');
+                $this->form_validation->set_rules('account_no_'.$row, 'Account No.', 'trim|is_natural|required|min_length[10]|max_length[20]');
+                $this->form_validation->set_rules('ifsc_code_'.$row, 'IFSC code', 'trim|required|max_length[20]');
+                $this->form_validation->set_rules('branch_'.$row, 'Branch', 'trim|required|max_length[255]');
+                $this->form_validation->set_rules('balance_'.$row, 'Balance', 'trim|required|numeric|min_length[1]|max_length[10]');
+            }
+        }
 	}
 	
 	public function valid_url($str) {
