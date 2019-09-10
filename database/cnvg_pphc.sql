@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2019 at 09:13 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Sep 10, 2019 at 03:10 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `cnvg_pphc`
@@ -26,8 +28,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `bank`
 --
 
-CREATE TABLE IF NOT EXISTS `bank` (
-`bank_id` bigint(20) NOT NULL,
+CREATE TABLE `bank` (
+  `bank_id` bigint(20) NOT NULL,
   `bank` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `display` int(11) NOT NULL DEFAULT '1' COMMENT '0 for Hide and 1 for Show',
   `priority` int(11) NOT NULL DEFAULT '0',
@@ -43,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=132 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `bank`
@@ -188,8 +190,8 @@ INSERT INTO `bank` (`bank_id`, `bank`, `display`, `priority`, `created_date`, `c
 -- Table structure for table `contractor`
 --
 
-CREATE TABLE IF NOT EXISTS `contractor` (
-`contractor_id` bigint(20) NOT NULL,
+CREATE TABLE `contractor` (
+  `contractor_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `users_id` bigint(20) NOT NULL,
   `firm_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -221,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `contractor` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `contractor`
@@ -243,7 +245,9 @@ INSERT INTO `contractor` (`contractor_id`, `department_id`, `users_id`, `firm_na
 (13, 1, 16, 'Shri Jatinder Kumar, Contractors', '', 'Individual', '61-B, Rose Enclave, Pakhowal, Ludhiana', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (14, 1, 17, 'The Lango Mahal CO-OP L&C Society Ltd', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (15, 1, 18, 'The Mohan Ke uttar CO-Op L&Csociety Ltd', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 1, 19, 'The Universal Co-op L&C Society Ltd.', '', 'Individual', 'Hno. 8861, St. No. 5/6 Kot Baba Deep Singh, Amritsar', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(16, 1, 19, 'The Universal Co-op L&C Society Ltd.', '', 'Individual', 'Hno. 8861, St. No. 5/6 Kot Baba Deep Singh, Amritsar', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 1, 20, 'M/s Puneet Sharma & Associates', 'M/s Puneet Sharma & Associates', 'Individual', 'Zirakpur', '1234567890', 'a@g.com', '', '', 'ATCPS6597B', '03ATCPS6597B1ZM', NULL, 'Pending', '1900-01-01', '', 'No', '1900-01-01', NULL, '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(18, 1, 21, 'Shri Jatinder Kumar', '', 'Individual', 'Ludhiana', '', '', '', '', 'AAZPK2957R', '03AAZPK2957R1ZP', NULL, 'Pending', '1900-01-01', '', 'No', '1900-01-01', NULL, '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -251,8 +255,8 @@ INSERT INTO `contractor` (`contractor_id`, `department_id`, `users_id`, `firm_na
 -- Table structure for table `contractor_bank`
 --
 
-CREATE TABLE IF NOT EXISTS `contractor_bank` (
-`contractor_bank_id` bigint(20) NOT NULL,
+CREATE TABLE `contractor_bank` (
+  `contractor_bank_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `users_id` bigint(20) NOT NULL,
   `contractor_id` bigint(20) NOT NULL,
@@ -272,14 +276,24 @@ CREATE TABLE IF NOT EXISTS `contractor_bank` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `contractor_bank`
 --
 
 INSERT INTO `contractor_bank` (`contractor_bank_id`, `department_id`, `users_id`, `contractor_id`, `bank_id`, `account_no`, `ifsc_code`, `branch`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
-(1, 1, 4, 1, 1, '1234567890', 'KOTAK00000000', NULL, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 1, 4, 1, 1, '1234567890', 'KOTAK00000000', NULL, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 20, 17, 9, '178011100000690', 'ANDB0001780', 'Zirakpur', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(3, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(4, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(5, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(6, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 1, 21, 18, 131, '70884600000298', 'YESB0000708', 'Ludhiana', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -287,8 +301,8 @@ INSERT INTO `contractor_bank` (`contractor_bank_id`, `department_id`, `users_id`
 -- Table structure for table `department`
 --
 
-CREATE TABLE IF NOT EXISTS `department` (
-`department_id` bigint(20) NOT NULL,
+CREATE TABLE `department` (
+  `department_id` bigint(20) NOT NULL,
   `department_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `images` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '1000x500',
   `thumbnail1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '500x250',
@@ -307,7 +321,7 @@ CREATE TABLE IF NOT EXISTS `department` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `department`
@@ -322,8 +336,8 @@ INSERT INTO `department` (`department_id`, `department_name`, `images`, `thumbna
 -- Table structure for table `department_language`
 --
 
-CREATE TABLE IF NOT EXISTS `department_language` (
-`department_language_id` bigint(20) NOT NULL,
+CREATE TABLE `department_language` (
+  `department_language_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `language_id` bigint(20) NOT NULL,
   `display` int(11) NOT NULL DEFAULT '1' COMMENT '0 for Hide and 1 for Show',
@@ -340,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `department_language` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `department_language`
@@ -356,8 +370,8 @@ INSERT INTO `department_language` (`department_language_id`, `department_id`, `l
 -- Table structure for table `designation`
 --
 
-CREATE TABLE IF NOT EXISTS `designation` (
-`designation_id` bigint(20) NOT NULL,
+CREATE TABLE `designation` (
+  `designation_id` bigint(20) NOT NULL,
   `designation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `display` int(11) NOT NULL DEFAULT '1' COMMENT '0 for Hide and 1 for Show',
   `priority` int(11) NOT NULL DEFAULT '0',
@@ -373,7 +387,7 @@ CREATE TABLE IF NOT EXISTS `designation` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `designation`
@@ -391,8 +405,8 @@ INSERT INTO `designation` (`designation_id`, `designation`, `display`, `priority
 -- Table structure for table `expenditure`
 --
 
-CREATE TABLE IF NOT EXISTS `expenditure` (
-`expenditure_id` bigint(20) NOT NULL,
+CREATE TABLE `expenditure` (
+  `expenditure_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `project_id` bigint(20) NOT NULL,
   `project_activity_id` bigint(20) NOT NULL,
@@ -431,7 +445,7 @@ CREATE TABLE IF NOT EXISTS `expenditure` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `expenditure`
@@ -447,8 +461,8 @@ INSERT INTO `expenditure` (`expenditure_id`, `department_id`, `project_id`, `pro
 -- Table structure for table `finyear`
 --
 
-CREATE TABLE IF NOT EXISTS `finyear` (
-`finyear_id` bigint(20) NOT NULL,
+CREATE TABLE `finyear` (
+  `finyear_id` bigint(20) NOT NULL,
   `finyear` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `from_date` datetime NOT NULL,
   `to_date` datetime NOT NULL,
@@ -467,7 +481,7 @@ CREATE TABLE IF NOT EXISTS `finyear` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `finyear`
@@ -482,12 +496,12 @@ INSERT INTO `finyear` (`finyear_id`, `finyear`, `from_date`, `to_date`, `activat
 -- Table structure for table `fund_received`
 --
 
-CREATE TABLE IF NOT EXISTS `fund_received` (
-`fund_received_id` bigint(20) NOT NULL,
+CREATE TABLE `fund_received` (
+  `fund_received_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `project_id` bigint(20) NOT NULL,
-  `project_activity_id` bigint(20) NOT NULL,
-  `bill_no` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `project_activity_id` bigint(20) NOT NULL DEFAULT '0',
+  `bill_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `gross_amount` double NOT NULL,
   `net_amount_released` double NOT NULL,
@@ -516,14 +530,16 @@ CREATE TABLE IF NOT EXISTS `fund_received` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `fund_received`
 --
 
 INSERT INTO `fund_received` (`fund_received_id`, `department_id`, `project_id`, `project_activity_id`, `bill_no`, `date`, `gross_amount`, `net_amount_released`, `payment_mode_id`, `bank_id`, `transaction_no`, `transaction_date`, `branch`, `remarks`, `status_id`, `status_date`, `status_remarks`, `is_cancel`, `cancel_date`, `cancel_reason`, `finyear_id`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
-(1, 1, 1, 1, '1', '2019-09-03', 2, 2, 1, 52, 'rwrwer', '2019-09-03', 'werwer', 'ewrwe', 'Pending', '2019-09-03', '', 'No', '2019-09-03', '', 1, '2019-09-03', '23:18:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 1, 5, 0, 'First Installment of Phase 2 reced in December, 2014', '2019-12-01', 224000000, 224000000, 0, 0, '', '2019-09-10', '', '', 'Pending', '2019-09-10', '', 'No', '2019-09-10', '', 1, '2019-09-10', '16:05:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 5, 0, 'First Installment of Phase 2 reced on December, 2014', '2019-12-01', 100000000, 100000000, 0, 0, '', '2019-09-10', '', '', 'Pending', '2019-09-10', '', 'No', '2019-09-10', '', 1, '2019-09-10', '16:06:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 1, 5, 0, 'First Installment of Phase 2 reced on January, 2015', '2015-01-01', 176000000, 176000000, 0, 0, '', '2019-09-10', '', '', 'Pending', '2019-09-10', '', 'No', '2019-09-10', '', 1, '2019-09-10', '16:06:43', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -531,8 +547,8 @@ INSERT INTO `fund_received` (`fund_received_id`, `department_id`, `project_id`, 
 -- Table structure for table `interest`
 --
 
-CREATE TABLE IF NOT EXISTS `interest` (
-`interest_id` bigint(20) NOT NULL,
+CREATE TABLE `interest` (
+  `interest_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `project_id` bigint(20) NOT NULL,
   `project_activity_id` bigint(20) NOT NULL,
@@ -565,7 +581,7 @@ CREATE TABLE IF NOT EXISTS `interest` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `interest`
@@ -580,8 +596,8 @@ INSERT INTO `interest` (`interest_id`, `department_id`, `project_id`, `project_a
 -- Table structure for table `language`
 --
 
-CREATE TABLE IF NOT EXISTS `language` (
-`language_id` bigint(20) NOT NULL,
+CREATE TABLE `language` (
+  `language_id` bigint(20) NOT NULL,
   `smart_city_id` bigint(20) NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `language` text COLLATE utf8_unicode_ci NOT NULL,
@@ -601,7 +617,7 @@ CREATE TABLE IF NOT EXISTS `language` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `language`
@@ -617,8 +633,8 @@ INSERT INTO `language` (`language_id`, `smart_city_id`, `slug`, `language`, `is_
 -- Table structure for table `location`
 --
 
-CREATE TABLE IF NOT EXISTS `location` (
-`location_id` bigint(20) NOT NULL,
+CREATE TABLE `location` (
+  `location_id` bigint(20) NOT NULL,
   `country_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `state_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `state_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -637,7 +653,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=12635 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `location`
@@ -3462,8 +3478,8 @@ INSERT INTO `location` (`location_id`, `country_name`, `state_name`, `state_code
 -- Table structure for table `payment_mode`
 --
 
-CREATE TABLE IF NOT EXISTS `payment_mode` (
-`payment_mode_id` bigint(20) NOT NULL,
+CREATE TABLE `payment_mode` (
+  `payment_mode_id` bigint(20) NOT NULL,
   `payment_mode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `display` int(11) NOT NULL DEFAULT '1' COMMENT '0 for Hide and 1 for Show',
   `priority` int(11) NOT NULL DEFAULT '0',
@@ -3479,7 +3495,7 @@ CREATE TABLE IF NOT EXISTS `payment_mode` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `payment_mode`
@@ -3495,8 +3511,8 @@ INSERT INTO `payment_mode` (`payment_mode_id`, `payment_mode`, `display`, `prior
 -- Table structure for table `projects`
 --
 
-CREATE TABLE IF NOT EXISTS `projects` (
-`project_id` bigint(11) NOT NULL,
+CREATE TABLE `projects` (
+  `project_id` bigint(11) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `project_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sanctioned_funds` double NOT NULL,
@@ -3524,21 +3540,109 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`project_id`, `department_id`, `project_name`, `sanctioned_funds`, `funds_received`, `interest`, `expenditure`, `funds_available`, `remarks`, `status_id`, `status_date`, `status_remarks`, `is_cancel`, `cancel_date`, `cancel_reason`, `finyear_id`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
-(1, 1, 'HUDCO funded Scheme', 5000000000, 250000000, 0, 8500000, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-03', '16:33:47', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(1, 1, 'HUDCO Scheme', 5000000000, 250000000, 0, 8500000, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
 (2, 1, 'Annual Plan 204-15', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 1, 'Annual Plan 2015-16', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 1, 'Jail Works', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 1, '13th Finance Commission Scheme Phase I, II & III\r\n', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 1, 'Modernisation of State Police Forces Scheme', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (7, 1, 'CCTNS Funds', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 1, 'Bareeta Carbion', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(8, 1, 'Bareeta Carbion', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 1, 'Deposit Work', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 1, 'Passport Verification Funds', 0, 0, 0, 0, 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects_bank`
+--
+
+CREATE TABLE `projects_bank` (
+  `projects_bank_id` bigint(20) NOT NULL,
+  `department_id` bigint(20) NOT NULL,
+  `project_id` bigint(20) NOT NULL,
+  `bank_id` bigint(20) NOT NULL,
+  `account_no` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ifsc_code` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `branch` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `balance` double NOT NULL DEFAULT '0',
+  `finyear_id` bigint(20) NOT NULL DEFAULT '1',
+  `created_date` date NOT NULL,
+  `created_time` time NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `created_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_user_agent` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_date` date DEFAULT NULL,
+  `updated_time` time DEFAULT NULL,
+  `updated_by` bigint(20) DEFAULT NULL,
+  `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `updated_user_agent` text COLLATE utf8_unicode_ci,
+  `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `projects_bank`
+--
+
+INSERT INTO `projects_bank` (`projects_bank_id`, `department_id`, `project_id`, `bank_id`, `account_no`, `ifsc_code`, `branch`, `balance`, `finyear_id`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
+(1, 1, 1, 56, '12345678900', 'SBI000000', 'aaaaa', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(2, 1, 1, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(3, 1, 1, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(4, 1, 1, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(5, 1, 1, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 1, 2, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 1, 2, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 1, 2, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 1, 2, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 1, 2, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 1, 3, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 1, 3, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 1, 3, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 1, 3, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 1, 3, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 1, 4, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 1, 4, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 1, 4, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 1, 4, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 1, 4, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 1, 5, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 1, 5, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 1, 5, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 1, 5, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 1, 5, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(26, 1, 6, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 1, 6, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 1, 6, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 1, 6, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 1, 6, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 1, 7, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 1, 7, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 1, 7, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(34, 1, 7, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(35, 1, 7, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(36, 1, 8, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(37, 1, 8, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(38, 1, 8, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(39, 1, 8, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 1, 8, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 1, 9, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(42, 1, 9, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(43, 1, 9, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(44, 1, 9, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(45, 1, 9, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(46, 1, 10, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(47, 1, 10, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(48, 1, 10, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(49, 1, 10, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(50, 1, 10, 0, '', '', '', 0, 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3546,8 +3650,8 @@ INSERT INTO `projects` (`project_id`, `department_id`, `project_name`, `sanction
 -- Table structure for table `project_activity`
 --
 
-CREATE TABLE IF NOT EXISTS `project_activity` (
-`project_activity_id` bigint(20) NOT NULL,
+CREATE TABLE `project_activity` (
+  `project_activity_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `project_id` bigint(20) NOT NULL,
   `activity_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -3584,14 +3688,14 @@ CREATE TABLE IF NOT EXISTS `project_activity` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `project_activity`
 --
 
 INSERT INTO `project_activity` (`project_activity_id`, `department_id`, `project_id`, `activity_name`, `address`, `funds_allocated`, `sanction_amount`, `dnit_amount`, `allotment_below_above`, `allotment_amount`, `contractor_id`, `supervisor_id`, `date_start`, `scheduled_date_completion`, `extension`, `actual_date_completion`, `expenditure_released`, `remarks`, `status_id`, `status_date`, `status_remarks`, `is_cancel`, `cancel_date`, `cancel_reason`, `finyear_id`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
-(1, 1, 1, 'Construction of Standard Police Station building type-H at sadar Bathinda', 'M/SAranaya Buildcon and Engineers', 0, 210.82, 18664153.73, -13.97, 16056771, 5, 0, '0000-00-00', '0000-00-00', '', '0000-00-00', 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 1, 1, 'Construction of Standard Police Station building type-H at sadar Bathinda', 'M/SAranaya Buildcon and Engineers', 0, 210.82, 18664153.73, -13.97, 16056771, 5, 0, '2019-09-10', '2019-09-10', '', '2019-09-10', 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', '2019-09-10', '11:45:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
 (2, 1, 1, 'Construction of Standard Police Station building type-H-1 at Bhadaur', 'M/S A.J.Builders& contractors', 0, 192.09, 16872672.3, -7.51, 18442094, 4, 0, '0000-00-00', '0000-00-00', '', '0000-00-00', 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 1, 1, 'Construction of Standard Police Station building type-H at Khanouri', 'M/S Sai construction CO', 0, 215.5, 17274087.09, -8.99, 18684788, 10, 0, '0000-00-00', '0000-00-00', '', '0000-00-00', 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 1, 1, 'Construction of Standard Police Station building type-H at Jourkian', 'M/S Raghu Nath goyal', 0, 214.02, 19384313.59, -7.15, 21168847.43, 9, 0, '0000-00-00', '0000-00-00', '', '0000-00-00', 0, '', 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', 1, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -3620,8 +3724,8 @@ INSERT INTO `project_activity` (`project_activity_id`, `department_id`, `project
 -- Table structure for table `supervisor`
 --
 
-CREATE TABLE IF NOT EXISTS `supervisor` (
-`supervisor_id` bigint(20) NOT NULL,
+CREATE TABLE `supervisor` (
+  `supervisor_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `mobile` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -3646,7 +3750,7 @@ CREATE TABLE IF NOT EXISTS `supervisor` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -3654,8 +3758,8 @@ CREATE TABLE IF NOT EXISTS `supervisor` (
 -- Table structure for table `users_logs`
 --
 
-CREATE TABLE IF NOT EXISTS `users_logs` (
-`users_logs_id` bigint(20) NOT NULL,
+CREATE TABLE `users_logs` (
+  `users_logs_id` bigint(20) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `users_id` bigint(20) NOT NULL,
@@ -3674,7 +3778,7 @@ CREATE TABLE IF NOT EXISTS `users_logs` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=660 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `users_logs`
@@ -4341,7 +4445,194 @@ INSERT INTO `users_logs` (`users_logs_id`, `date`, `time`, `users_id`, `users_ty
 (656, '2019-09-05', '16:23:29', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ExpenditureDetails/add', '2019-09-05', '16:23:29', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
 (657, '2019-09-05', '16:24:58', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Interest', '2019-09-05', '16:24:58', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
 (658, '2019-09-05', '16:25:05', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Interest/add', '2019-09-05', '16:25:05', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(659, '2019-09-05', '16:28:23', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Interest/add', '2019-09-05', '16:28:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
+(659, '2019-09-05', '16:28:23', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Interest/add', '2019-09-05', '16:28:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(660, '2019-09-09', '15:56:03', 2, 2, 0, 'http://localhost/converge/PPHCL/Login', '2019-09-09', '15:56:03', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(661, '2019-09-09', '15:56:04', 2, 2, 1, 'http://localhost/converge/PPHCL/Admin/Dashboard', '2019-09-09', '15:56:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(662, '2019-09-09', '15:56:09', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-09', '15:56:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(663, '2019-09-09', '15:56:17', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-09', '15:56:17', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(664, '2019-09-09', '18:06:40', 2, 2, 0, 'http://localhost/converge/PPHCL/Login', '2019-09-09', '18:06:40', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(665, '2019-09-09', '18:06:40', 2, 2, 1, 'http://localhost/converge/PPHCL/Admin/Dashboard', '2019-09-09', '18:06:40', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(666, '2019-09-09', '18:07:55', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-09', '18:07:55', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(667, '2019-09-09', '18:08:01', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-09', '18:08:01', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users_logs` (`users_logs_id`, `date`, `time`, `users_id`, `users_type_id`, `permission_id`, `url`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
+(668, '2019-09-09', '18:16:40', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-09', '18:16:40', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(669, '2019-09-09', '18:22:51', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-09', '18:22:51', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(670, '2019-09-09', '18:22:56', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '18:22:56', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(671, '2019-09-09', '18:31:13', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '18:31:13', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(672, '2019-09-09', '18:43:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '18:43:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(673, '2019-09-09', '18:46:07', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '18:46:07', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(674, '2019-09-09', '19:36:11', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '19:36:11', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(675, '2019-09-09', '19:37:42', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '19:37:42', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(676, '2019-09-09', '19:38:43', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '19:38:43', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(677, '2019-09-09', '19:39:16', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '19:39:16', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(678, '2019-09-09', '19:41:33', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-09', '19:41:33', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(679, '2019-09-09', '20:33:04', 2, 2, 0, 'http://localhost/converge/PPHCL/Login', '2019-09-09', '20:33:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(680, '2019-09-09', '20:33:04', 2, 2, 1, 'http://localhost/converge/PPHCL/Admin/Dashboard', '2019-09-09', '20:33:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(681, '2019-09-09', '20:33:08', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Interest', '2019-09-09', '20:33:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(682, '2019-09-09', '20:33:21', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-09', '20:33:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(683, '2019-09-10', '10:51:23', 2, 2, 0, 'http://localhost/converge/PPHCL/Login', '2019-09-10', '10:51:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(684, '2019-09-10', '10:51:23', 2, 2, 1, 'http://localhost/converge/PPHCL/Admin/Dashboard', '2019-09-10', '10:51:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(685, '2019-09-10', '10:51:28', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '10:51:28', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(686, '2019-09-10', '10:51:33', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-10', '10:51:33', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(687, '2019-09-10', '11:06:09', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/edit/MQ==', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(688, '2019-09-10', '11:06:09', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '11:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(689, '2019-09-10', '11:06:13', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:06:13', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(690, '2019-09-10', '11:11:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:11:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(691, '2019-09-10', '11:12:02', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:12:02', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(692, '2019-09-10', '11:12:51', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:12:51', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(693, '2019-09-10', '11:13:37', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:13:37', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(694, '2019-09-10', '11:14:11', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:14:11', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(695, '2019-09-10', '11:14:39', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:14:39', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(696, '2019-09-10', '11:14:54', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-10', '11:14:54', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(697, '2019-09-10', '11:18:12', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-10', '11:18:12', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(698, '2019-09-10', '11:18:14', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '11:18:14', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(699, '2019-09-10', '11:18:17', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:18:17', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(700, '2019-09-10', '11:18:54', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:18:54', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(701, '2019-09-10', '11:19:13', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:19:13', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(702, '2019-09-10', '11:24:04', 2, 2, 1, 'http://localhost/converge/PPHCL/ChangeProfile', '2019-09-10', '11:24:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(703, '2019-09-10', '11:24:07', 2, 2, 1, 'http://localhost/converge/PPHCL/ChangeProfile', '2019-09-10', '11:24:07', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(704, '2019-09-10', '11:24:10', 2, 2, 1, 'http://localhost/converge/PPHCL/ChangePassword', '2019-09-10', '11:24:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(705, '2019-09-10', '11:24:38', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:24:38', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(706, '2019-09-10', '11:24:40', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/add', '2019-09-10', '11:24:40', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(707, '2019-09-10', '11:24:43', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:24:43', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(708, '2019-09-10', '11:25:42', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:25:42', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(709, '2019-09-10', '11:25:49', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/MQ==', '2019-09-10', '11:25:49', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(710, '2019-09-10', '11:26:00', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/edit/MQ==', '2019-09-10', '11:26:00', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(711, '2019-09-10', '11:27:46', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/edit/MQ==', '2019-09-10', '11:27:46', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(712, '2019-09-10', '11:27:48', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/edit/MQ==', '2019-09-10', '11:27:48', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(713, '2019-09-10', '11:44:31', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/edit/MQ==', '2019-09-10', '11:44:31', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(714, '2019-09-10', '11:45:32', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/edit/MQ==', '2019-09-10', '11:45:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(715, '2019-09-10', '11:45:32', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:45:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(716, '2019-09-10', '11:46:23', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:46:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(717, '2019-09-10', '11:46:37', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '11:46:37', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(718, '2019-09-10', '11:46:42', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '11:46:42', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(719, '2019-09-10', '11:46:52', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/Mg==', '2019-09-10', '11:46:52', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(720, '2019-09-10', '11:48:44', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/Mg==', '2019-09-10', '11:48:44', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(721, '2019-09-10', '11:50:21', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/Mg==', '2019-09-10', '11:50:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(722, '2019-09-10', '11:51:15', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/Mg==', '2019-09-10', '11:51:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(723, '2019-09-10', '11:58:34', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/Mg==', '2019-09-10', '11:58:34', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(724, '2019-09-10', '11:58:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '11:58:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(725, '2019-09-10', '11:58:53', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/MQ==', '2019-09-10', '11:58:53', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(726, '2019-09-10', '12:00:31', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/MQ==', '2019-09-10', '12:00:31', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(727, '2019-09-10', '12:01:01', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '12:01:01', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(728, '2019-09-10', '12:02:58', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '12:02:58', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(729, '2019-09-10', '12:04:08', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '12:04:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(730, '2019-09-10', '12:04:42', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '12:04:42', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(731, '2019-09-10', '12:05:37', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '12:05:37', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(732, '2019-09-10', '12:06:04', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '12:06:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(733, '2019-09-10', '12:06:17', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '12:06:17', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(734, '2019-09-10', '12:06:21', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '12:06:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(735, '2019-09-10', '12:33:12', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '12:33:12', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(736, '2019-09-10', '12:33:26', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '12:33:26', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(737, '2019-09-10', '12:33:26', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '12:33:26', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(738, '2019-09-10', '12:33:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(739, '2019-09-10', '12:33:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(740, '2019-09-10', '12:34:13', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '12:34:13', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(741, '2019-09-10', '12:38:59', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '12:38:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(742, '2019-09-10', '12:39:18', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '12:39:18', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(743, '2019-09-10', '12:54:27', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '12:54:27', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(744, '2019-09-10', '12:55:48', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '12:55:48', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(745, '2019-09-10', '13:00:20', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '13:00:20', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(746, '2019-09-10', '13:00:49', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '13:00:49', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(747, '2019-09-10', '14:55:05', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '14:55:05', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(748, '2019-09-10', '14:56:35', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:56:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(749, '2019-09-10', '14:57:35', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:57:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(750, '2019-09-10', '14:57:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:57:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(751, '2019-09-10', '14:57:54', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjA=', '2019-09-10', '14:57:54', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(752, '2019-09-10', '14:58:01', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:58:01', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(753, '2019-09-10', '14:58:03', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '14:58:03', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(754, '2019-09-10', '14:58:59', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(755, '2019-09-10', '14:58:59', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(756, '2019-09-10', '14:59:21', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MTY=', '2019-09-10', '14:59:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(757, '2019-09-10', '14:59:30', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:59:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(758, '2019-09-10', '14:59:35', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/MjE=', '2019-09-10', '14:59:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(759, '2019-09-10', '14:59:41', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '14:59:41', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(760, '2019-09-10', '15:00:21', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/NQ==', '2019-09-10', '15:00:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(761, '2019-09-10', '15:00:28', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:00:28', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(762, '2019-09-10', '15:00:32', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/NA==', '2019-09-10', '15:00:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(763, '2019-09-10', '15:01:08', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:01:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(764, '2019-09-10', '15:01:34', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:01:34', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(765, '2019-09-10', '15:10:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:10:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(766, '2019-09-10', '15:10:59', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:10:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(767, '2019-09-10', '15:12:02', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:12:02', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(768, '2019-09-10', '15:13:33', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:13:33', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(769, '2019-09-10', '15:14:47', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:14:47', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(770, '2019-09-10', '15:17:32', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:17:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(771, '2019-09-10', '15:17:40', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '15:17:40', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(772, '2019-09-10', '15:17:44', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '15:17:44', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(773, '2019-09-10', '15:17:49', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-10', '15:17:49', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(774, '2019-09-10', '15:19:52', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/add', '2019-09-10', '15:19:52', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(775, '2019-09-10', '15:20:00', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:20:00', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(776, '2019-09-10', '15:20:07', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:20:07', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(777, '2019-09-10', '15:21:00', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:21:00', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(778, '2019-09-10', '15:21:14', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:21:14', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(779, '2019-09-10', '15:21:21', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:21:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(780, '2019-09-10', '15:21:29', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:21:29', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(781, '2019-09-10', '15:21:45', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:21:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(782, '2019-09-10', '15:22:07', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:22:07', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(783, '2019-09-10', '15:22:10', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:22:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(784, '2019-09-10', '15:23:08', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:23:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(785, '2019-09-10', '15:23:15', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:23:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(786, '2019-09-10', '15:23:34', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:23:34', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(787, '2019-09-10', '15:24:39', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:24:39', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(788, '2019-09-10', '15:25:10', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:25:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(789, '2019-09-10', '15:25:13', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:25:13', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(790, '2019-09-10', '15:25:30', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/MjA=', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(791, '2019-09-10', '15:25:31', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:25:31', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(792, '2019-09-10', '15:27:39', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:27:39', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(793, '2019-09-10', '15:28:19', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:28:19', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(794, '2019-09-10', '15:29:03', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:29:03', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(795, '2019-09-10', '15:29:23', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:29:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(796, '2019-09-10', '15:30:35', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:30:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(797, '2019-09-10', '15:32:44', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:32:44', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(798, '2019-09-10', '15:34:56', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-10', '15:34:56', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(799, '2019-09-10', '15:35:11', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:35:11', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(800, '2019-09-10', '15:35:14', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:35:14', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(801, '2019-09-10', '15:35:32', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/edit/NA==', '2019-09-10', '15:35:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(802, '2019-09-10', '15:35:36', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:35:36', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(803, '2019-09-10', '15:35:39', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/NA==', '2019-09-10', '15:35:39', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(804, '2019-09-10', '15:38:16', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-10', '15:38:16', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(805, '2019-09-10', '15:38:22', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/NA==', '2019-09-10', '15:38:22', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(806, '2019-09-10', '15:43:13', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/NA==', '2019-09-10', '15:43:13', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(807, '2019-09-10', '15:44:04', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/view/NA==', '2019-09-10', '15:44:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(808, '2019-09-10', '15:45:12', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject', '2019-09-10', '15:45:12', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(809, '2019-09-10', '15:45:17', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/ActivitesUnderProject/view/MQ==', '2019-09-10', '15:45:17', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(810, '2019-09-10', '15:45:25', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects', '2019-09-10', '15:45:25', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(811, '2019-09-10', '15:45:27', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '15:45:27', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(812, '2019-09-10', '15:47:01', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '15:47:01', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(813, '2019-09-10', '15:48:11', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '15:48:11', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(814, '2019-09-10', '15:49:09', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '15:49:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(815, '2019-09-10', '15:52:08', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '15:52:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(816, '2019-09-10', '15:53:33', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/MQ==', '2019-09-10', '15:53:33', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(817, '2019-09-10', '15:53:50', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '15:53:50', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(818, '2019-09-10', '15:53:59', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '15:53:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(819, '2019-09-10', '15:54:03', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '15:54:03', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(820, '2019-09-10', '15:54:44', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '15:54:44', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(821, '2019-09-10', '15:54:47', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/view/MQ==', '2019-09-10', '15:54:47', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(822, '2019-09-10', '15:54:56', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '15:54:56', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(823, '2019-09-10', '16:00:50', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:00:50', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(824, '2019-09-10', '16:00:53', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:00:53', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(825, '2019-09-10', '16:00:56', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:00:56', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(826, '2019-09-10', '16:03:48', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:03:48', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(827, '2019-09-10', '16:04:56', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:04:56', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(828, '2019-09-10', '16:05:04', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:05:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(829, '2019-09-10', '16:05:04', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:05:04', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(830, '2019-09-10', '16:05:32', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:05:32', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(831, '2019-09-10', '16:06:08', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:06:08', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(832, '2019-09-10', '16:06:09', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:06:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(833, '2019-09-10', '16:06:16', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:06:16', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(834, '2019-09-10', '16:06:43', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/add', '2019-09-10', '16:06:43', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(835, '2019-09-10', '16:06:43', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:06:43', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(836, '2019-09-10', '16:06:46', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/view/MQ==', '2019-09-10', '16:06:46', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(837, '2019-09-10', '16:08:17', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/view/MQ==', '2019-09-10', '16:08:17', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(838, '2019-09-10', '16:08:54', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived/view/MQ==', '2019-09-10', '16:08:54', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(839, '2019-09-10', '16:09:03', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/NQ==', '2019-09-10', '16:09:03', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(840, '2019-09-10', '16:09:41', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Projects/view/NQ==', '2019-09-10', '16:09:41', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(841, '2019-09-10', '16:11:09', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:11:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(842, '2019-09-10', '16:11:15', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:11:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(843, '2019-09-10', '16:12:15', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(844, '2019-09-10', '16:12:29', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:29', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(845, '2019-09-10', '16:12:48', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:48', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4349,8 +4640,8 @@ INSERT INTO `users_logs` (`users_logs_id`, `date`, `time`, `users_id`, `users_ty
 -- Table structure for table `users_mst`
 --
 
-CREATE TABLE IF NOT EXISTS `users_mst` (
-`users_id` bigint(20) NOT NULL,
+CREATE TABLE `users_mst` (
+  `users_id` bigint(20) NOT NULL,
   `department_id` bigint(20) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `images` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '1000*1000',
@@ -4377,7 +4668,7 @@ CREATE TABLE IF NOT EXISTS `users_mst` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `users_mst`
@@ -4402,7 +4693,9 @@ INSERT INTO `users_mst` (`users_id`, `department_id`, `name`, `images`, `thumbna
 (16, 1, 'Shri Jatinder Kumar, Contractors', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (17, 1, 'The Lango Mahal CO-OP L&C Society Ltd', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (18, 1, 'The Mohan Ke uttar CO-Op L&Csociety Ltd', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 1, 'The Universal Co-op L&C Society Ltd.', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(19, 1, 'The Universal Co-op L&C Society Ltd.', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 1, 'M/s Puneet Sharma & Associates', '', '', '', '1234567890', 'a@g.com', '', '282e057f17da21a1807019678f4bc7c6', '523464', 5, 1, NULL, NULL, '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(21, 1, 'Shri Jatinder Kumar', '', '', '', '', '', '', '2237daa3851e0936300f72368c5daf4e', '244310', 5, 1, NULL, NULL, '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4410,8 +4703,8 @@ INSERT INTO `users_mst` (`users_id`, `department_id`, `name`, `images`, `thumbna
 -- Table structure for table `users_permission`
 --
 
-CREATE TABLE IF NOT EXISTS `users_permission` (
-`permission_id` bigint(20) NOT NULL,
+CREATE TABLE `users_permission` (
+  `permission_id` bigint(20) NOT NULL,
   `users_type_id` bigint(20) NOT NULL,
   `heading` text COLLATE utf8_unicode_ci NOT NULL,
   `master_permission_id` bigint(20) NOT NULL DEFAULT '0',
@@ -4438,7 +4731,7 @@ CREATE TABLE IF NOT EXISTS `users_permission` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `users_permission`
@@ -4446,19 +4739,20 @@ CREATE TABLE IF NOT EXISTS `users_permission` (
 
 INSERT INTO `users_permission` (`permission_id`, `users_type_id`, `heading`, `master_permission_id`, `url`, `is_navigation`, `is_search`, `is_list`, `is_view`, `is_add`, `is_edit`, `is_delete`, `is_prints`, `display`, `priority`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
 (1, 2, 'Dashboard', 0, 'Admin/Dashboard', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1000, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 2, 'Scheme', 0, 'Admin/Projects', 1, 1, 1, 1, 1, 1, 1, 1, 1, 999, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 2, 'Scheme Details', 0, 'Admin/Projects', 1, 1, 1, 1, 1, 1, 1, 1, 1, 999, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 2, 'Projects', 0, 'Admin/ActivitesUnderProject', 1, 1, 1, 1, 1, 1, 1, 1, 1, 998, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 2, 'Funds Received Details', 0, 'Admin/FundsReceived', 1, 1, 1, 1, 1, 1, 1, 1, 1, 997, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 2, 'Expenditure Details', 0, 'Admin/ExpenditureDetails', 1, 1, 1, 1, 1, 1, 1, 1, 1, 996, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 2, 'Interest Details', 0, 'Admin/Interest', 1, 1, 1, 1, 1, 1, 1, 1, 1, 995, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 2, 'Details of Contractor', 0, 'Admin/Contractor', 1, 1, 1, 1, 1, 1, 1, 1, 1, 994, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 2, 'Details of Engineers/Supervisor', 0, 'Admin/Supervisor', 1, 1, 1, 1, 1, 1, 1, 1, 1, 993, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 2, 'MIS & Reports', 0, 'Admin/Reports', 1, 1, 1, 1, 1, 1, 1, 1, 1, 992, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 2, 'Bank', 0, 'Admin/ManageBank', 1, 1, 1, 1, 1, 1, 1, 1, 1, 991, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 2, 'Payment Mode', 0, '#', 1, 1, 1, 1, 1, 1, 1, 1, 1, 990, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 2, 'Manage Users', 0, 'Admin/ManageUsers', 1, 1, 1, 1, 1, 1, 1, 1, 1, 989, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 2, 'Manage Users Type', 0, 'Admin/ManageUsersType', 1, 1, 1, 1, 1, 1, 1, 1, 1, 988, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 2, 'Manage Permission', 0, 'Admin/ManagePermission', 1, 1, 1, 1, 1, 1, 1, 1, 1, 987, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 2, 'Funds Received Details', 0, 'Admin/FundsReceived', 1, 1, 1, 1, 1, 0, 1, 1, 1, 997, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 2, 'Expenditure Details', 0, 'Admin/ExpenditureDetails', 1, 1, 1, 1, 1, 0, 1, 1, 1, 996, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 2, 'Interest Details', 0, 'Admin/Interest', 1, 1, 1, 1, 1, 0, 1, 1, 1, 995, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 2, 'FDR Details', 0, 'Admin/FDRDetails', 1, 1, 1, 1, 1, 0, 1, 1, 1, 994, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 2, 'Details of Contractor', 0, 'Admin/Contractor', 1, 1, 1, 1, 1, 1, 1, 1, 1, 993, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 2, 'Details of Engineers/Supervisor', 0, 'Admin/Supervisor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 992, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 2, 'MIS & Reports', 0, 'Admin/Reports', 1, 1, 1, 1, 1, 1, 1, 1, 1, 991, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 2, 'Bank', 0, 'Admin/ManageBank', 1, 1, 1, 1, 1, 1, 1, 1, 1, 990, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 2, 'Payment Mode', 0, '#', 1, 1, 1, 1, 1, 1, 1, 1, 1, 989, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 2, 'Manage Users', 0, 'Admin/ManageUsers', 1, 1, 1, 1, 1, 1, 1, 1, 1, 988, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 2, 'Manage Users Type', 0, 'Admin/ManageUsersType', 1, 1, 1, 1, 1, 1, 1, 1, 1, 987, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 2, 'Manage Permission', 0, 'Admin/ManagePermission', 1, 1, 1, 1, 1, 1, 1, 1, 1, 986, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4466,8 +4760,8 @@ INSERT INTO `users_permission` (`permission_id`, `users_type_id`, `heading`, `ma
 -- Table structure for table `users_type`
 --
 
-CREATE TABLE IF NOT EXISTS `users_type` (
-`users_type_id` bigint(20) NOT NULL,
+CREATE TABLE `users_type` (
+  `users_type_id` bigint(20) NOT NULL,
   `users_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `display` bigint(20) NOT NULL DEFAULT '0' COMMENT '0 for Hide and 1 for Show',
   `priority` int(11) NOT NULL DEFAULT '0',
@@ -4483,7 +4777,7 @@ CREATE TABLE IF NOT EXISTS `users_type` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `users_type`
@@ -4502,8 +4796,8 @@ INSERT INTO `users_type` (`users_type_id`, `users_type`, `display`, `priority`, 
 -- Table structure for table `version`
 --
 
-CREATE TABLE IF NOT EXISTS `version` (
-`version_id` bigint(20) NOT NULL,
+CREATE TABLE `version` (
+  `version_id` bigint(20) NOT NULL,
   `smart_city_id` bigint(20) NOT NULL,
   `app_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `version_no` int(11) NOT NULL,
@@ -4527,7 +4821,7 @@ CREATE TABLE IF NOT EXISTS `version` (
   `updated_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `version`
@@ -4544,127 +4838,133 @@ INSERT INTO `version` (`version_id`, `smart_city_id`, `app_type`, `version_no`, 
 -- Indexes for table `bank`
 --
 ALTER TABLE `bank`
- ADD PRIMARY KEY (`bank_id`);
+  ADD PRIMARY KEY (`bank_id`);
 
 --
 -- Indexes for table `contractor`
 --
 ALTER TABLE `contractor`
- ADD PRIMARY KEY (`contractor_id`);
+  ADD PRIMARY KEY (`contractor_id`);
 
 --
 -- Indexes for table `contractor_bank`
 --
 ALTER TABLE `contractor_bank`
- ADD PRIMARY KEY (`contractor_bank_id`);
+  ADD PRIMARY KEY (`contractor_bank_id`);
 
 --
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
- ADD PRIMARY KEY (`department_id`);
+  ADD PRIMARY KEY (`department_id`);
 
 --
 -- Indexes for table `department_language`
 --
 ALTER TABLE `department_language`
- ADD PRIMARY KEY (`department_language_id`);
+  ADD PRIMARY KEY (`department_language_id`);
 
 --
 -- Indexes for table `designation`
 --
 ALTER TABLE `designation`
- ADD PRIMARY KEY (`designation_id`);
+  ADD PRIMARY KEY (`designation_id`);
 
 --
 -- Indexes for table `expenditure`
 --
 ALTER TABLE `expenditure`
- ADD PRIMARY KEY (`expenditure_id`);
+  ADD PRIMARY KEY (`expenditure_id`);
 
 --
 -- Indexes for table `finyear`
 --
 ALTER TABLE `finyear`
- ADD PRIMARY KEY (`finyear_id`);
+  ADD PRIMARY KEY (`finyear_id`);
 
 --
 -- Indexes for table `fund_received`
 --
 ALTER TABLE `fund_received`
- ADD PRIMARY KEY (`fund_received_id`);
+  ADD PRIMARY KEY (`fund_received_id`);
 
 --
 -- Indexes for table `interest`
 --
 ALTER TABLE `interest`
- ADD PRIMARY KEY (`interest_id`);
+  ADD PRIMARY KEY (`interest_id`);
 
 --
 -- Indexes for table `language`
 --
 ALTER TABLE `language`
- ADD PRIMARY KEY (`language_id`);
+  ADD PRIMARY KEY (`language_id`);
 
 --
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
- ADD PRIMARY KEY (`location_id`);
+  ADD PRIMARY KEY (`location_id`);
 
 --
 -- Indexes for table `payment_mode`
 --
 ALTER TABLE `payment_mode`
- ADD PRIMARY KEY (`payment_mode_id`);
+  ADD PRIMARY KEY (`payment_mode_id`);
 
 --
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
- ADD PRIMARY KEY (`project_id`);
+  ADD PRIMARY KEY (`project_id`);
+
+--
+-- Indexes for table `projects_bank`
+--
+ALTER TABLE `projects_bank`
+  ADD PRIMARY KEY (`projects_bank_id`);
 
 --
 -- Indexes for table `project_activity`
 --
 ALTER TABLE `project_activity`
- ADD PRIMARY KEY (`project_activity_id`);
+  ADD PRIMARY KEY (`project_activity_id`);
 
 --
 -- Indexes for table `supervisor`
 --
 ALTER TABLE `supervisor`
- ADD PRIMARY KEY (`supervisor_id`);
+  ADD PRIMARY KEY (`supervisor_id`);
 
 --
 -- Indexes for table `users_logs`
 --
 ALTER TABLE `users_logs`
- ADD PRIMARY KEY (`users_logs_id`);
+  ADD PRIMARY KEY (`users_logs_id`);
 
 --
 -- Indexes for table `users_mst`
 --
 ALTER TABLE `users_mst`
- ADD PRIMARY KEY (`users_id`);
+  ADD PRIMARY KEY (`users_id`);
 
 --
 -- Indexes for table `users_permission`
 --
 ALTER TABLE `users_permission`
- ADD PRIMARY KEY (`permission_id`);
+  ADD PRIMARY KEY (`permission_id`);
 
 --
 -- Indexes for table `users_type`
 --
 ALTER TABLE `users_type`
- ADD PRIMARY KEY (`users_type_id`);
+  ADD PRIMARY KEY (`users_type_id`);
 
 --
 -- Indexes for table `version`
 --
 ALTER TABLE `version`
- ADD PRIMARY KEY (`version_id`);
+  ADD PRIMARY KEY (`version_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -4674,107 +4974,135 @@ ALTER TABLE `version`
 -- AUTO_INCREMENT for table `bank`
 --
 ALTER TABLE `bank`
-MODIFY `bank_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=132;
+  MODIFY `bank_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+
 --
 -- AUTO_INCREMENT for table `contractor`
 --
 ALTER TABLE `contractor`
-MODIFY `contractor_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `contractor_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `contractor_bank`
 --
 ALTER TABLE `contractor_bank`
-MODIFY `contractor_bank_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `contractor_bank_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-MODIFY `department_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `department_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `department_language`
 --
 ALTER TABLE `department_language`
-MODIFY `department_language_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `department_language_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `designation`
 --
 ALTER TABLE `designation`
-MODIFY `designation_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `designation_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `expenditure`
 --
 ALTER TABLE `expenditure`
-MODIFY `expenditure_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `expenditure_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `finyear`
 --
 ALTER TABLE `finyear`
-MODIFY `finyear_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `finyear_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `fund_received`
 --
 ALTER TABLE `fund_received`
-MODIFY `fund_received_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `fund_received_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `interest`
 --
 ALTER TABLE `interest`
-MODIFY `interest_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `interest_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `language`
 --
 ALTER TABLE `language`
-MODIFY `language_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `language_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-MODIFY `location_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12635;
+  MODIFY `location_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12635;
+
 --
 -- AUTO_INCREMENT for table `payment_mode`
 --
 ALTER TABLE `payment_mode`
-MODIFY `payment_mode_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `payment_mode_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-MODIFY `project_id` bigint(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `project_id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `projects_bank`
+--
+ALTER TABLE `projects_bank`
+  MODIFY `projects_bank_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
 --
 -- AUTO_INCREMENT for table `project_activity`
 --
 ALTER TABLE `project_activity`
-MODIFY `project_activity_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `project_activity_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- AUTO_INCREMENT for table `supervisor`
 --
 ALTER TABLE `supervisor`
-MODIFY `supervisor_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `supervisor_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-MODIFY `users_logs_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=660;
+  MODIFY `users_logs_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=846;
+
 --
 -- AUTO_INCREMENT for table `users_mst`
 --
 ALTER TABLE `users_mst`
-MODIFY `users_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `users_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `users_permission`
 --
 ALTER TABLE `users_permission`
-MODIFY `permission_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `permission_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT for table `users_type`
 --
 ALTER TABLE `users_type`
-MODIFY `users_type_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `users_type_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `version`
 --
 ALTER TABLE `version`
-MODIFY `version_id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `version_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
