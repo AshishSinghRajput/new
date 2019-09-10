@@ -16,7 +16,7 @@ class ContractorBankMstModel extends CI_Model {
         if(($contractor_bank_id != '') && ($contractor_bank_id != '0') && ($contractor_bank_id != 'null')) {
             $query.= "AND (`contractor_bank_id` = '".$contractor_bank_id."') ";
         }        
-        $query.= "ORDER BY `firm_name`";
+        $query.= "ORDER BY `contractor_bank_id`";
         $results = $this->db->query($query);
 		return $results->result();
     }

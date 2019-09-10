@@ -84,7 +84,7 @@
                                     } else if (!empty($fund_received_info)) {
                                        $bill_no_value = $fund_received_info->bill_no;
                                     }?>
-                              <input type="text" required id="bill_no" name="bill_no" placeholder="Enter bill no" maxlength="50" class="form-control" value="<?php echo $bill_no_value; ?>" />
+                              <input type="text" required id="bill_no" name="bill_no" placeholder="Enter description of bills" maxlength="255" class="form-control" value="<?php echo $bill_no_value; ?>" />
                               <span class="badge badge-danger m-1"><?php echo form_error('bill_no'); ?></span>
                            </div>
                         </div>
@@ -127,7 +127,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="col-md-4 col-sm-4 col-xs-12" style="display: none;">
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Select Projects <span class="text-hightlight">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">

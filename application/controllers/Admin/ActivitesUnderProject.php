@@ -142,7 +142,7 @@ class ActivitesUnderProject extends CI_Controller {
         } else {
             $this->db->trans_start();
 
-            $fund_received_data['department_id'] = $login_info->department_id;
+            $project_activity_data['department_id'] = $login_info->department_id;
             $project_activity_data['project_id'] = $this->input->post('project_id');
             $project_activity_data['activity_name'] = $this->input->post('activity_name'); 
             $project_activity_data['address'] = $this->input->post('address');       

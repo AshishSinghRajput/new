@@ -160,7 +160,7 @@
                                  <td><?php $project_activity_info = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '', $value->project_activity_id);
                                  if(!empty($project_activity_info)) { echo $project_activity_info['0']->activity_name;}?></td>*/?>
                                  <td><?php echo $value->running_bill;?></td>
-                                 <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->date);?></td>
+                                 <td><?php echo $this->customlib->get_DDMMYYYY($value->date);?></td>
                                  <td><?php echo $value->bill_no;?></td>
                                  <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank" href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?></td>
@@ -171,10 +171,10 @@
                                  <?php /*<td><?php $bank_info = $this->BankMstModel->get_record($value->bank_id);
                                           if (!empty($bank_info)) { echo $bank_info['0']->bank;} ?></td>
                                  <td><?php echo $value->transaction_no; ?></td>
-                                 <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->transaction_date); ?></td>
+                                 <td><?php echo $this->customlib->get_DDMMYYYY($value->transaction_date); ?></td>
                                  <td><?php echo $value->branch; ?></td>*/?>
                                  <td><?php echo $value->remarks;?></td>
-                                 <?php /*<td><?php if($value->status_id == 'Pending') {?>
+                                 <?php /*<td class="text-center"><?php if($value->status_id == 'Pending') {?>
                                        <span class="badge bg-grey-400"><?php echo $value->status_id;?></span>
                                     <?php } else if($value->status_id == 'In-Progress') {?>
                                        <span class="badge badge-info"><?php echo $value->status_id;?></span>

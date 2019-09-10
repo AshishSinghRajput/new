@@ -115,6 +115,10 @@ class Customlib {
         return date('d-M-Y', strtotime($date));
     }
 
+    function get_DDMMYYYY($date) {
+        return date('d/m/Y', strtotime($date));
+    }
+
     function get_YYYYMMDD($date) {
         return date('Y-m-d', strtotime($date));
     }

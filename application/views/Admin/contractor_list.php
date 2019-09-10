@@ -80,11 +80,11 @@
                                  <tr>
                                     <th class="text-center">Sr.No.</th>
                                     <th class="text-center">Firm Type</th>
-                                    <th class="text-center">Firm Name</th>
                                     <th class="text-center">Owner Name</th>
+                                    <th class="text-center">Firm Name</th>
                                     <th class="text-center">Address</th>
                                     <th class="text-center">Mobile</th>
-                                    <th class="text-center">E-mail</th>
+                                    <th class="text-center">Email</th>
                                     <th class="text-center"><label>Action</label></th>
                                  </tr>
                               </thead>
@@ -95,15 +95,12 @@
                                        <td><?php echo $sr;
                                              $sr++; //$value->store_id;
                                              ?></td>
-                                       <td><?php echo $value->firm_type; ?></td>
-
-                                       <td><?php echo $value->firm_name; ?></td>
+                                       <td><a href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->users_id));?>"><?php echo $value->firm_name; ?></a></td>
                                        <td><?php echo $value->owner_name; ?></td>
-
+                                       <td><?php echo $value->firm_type; ?></td>
                                        <td><?php echo $value->address; ?></td>
                                        <td><?php echo $value->mobile; ?></td>
-                                       <td><?php echo $value->email; ?></td>
-                                       
+                                       <td><?php echo $value->email; ?></td>                                      
 
                                        <td class="text-center">
                                        <div class="list-icons">
@@ -111,7 +108,7 @@
                                              <a href="#" class="list-icons-item dropdown-toggle caret-0" data-toggle="dropdown"><i class="icon-menu7"></i></a>
                                              <div class="dropdown-menu dropdown-menu-right">
                                                 <?php if($load_permission->is_edit == '1') {?>
-                                                   <a href="#" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
+                                                   <a href="<?php echo base_url('Admin/Contractor/edit/'.base64_encode($value->users_id));?>" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
                                                    <?php }?>
                                                 <?php if($load_permission->is_delete == '1') {?>
                                                    <a onclick="return confirm('<?php echo $this->lang->line('delete_confirmation');?>')" href="<?php echo base_url('Admin/Contractor/del/'.base64_encode($value->users_id));?>" class="dropdown-item"><i class="icon-trash-alt"></i> Delete</a>

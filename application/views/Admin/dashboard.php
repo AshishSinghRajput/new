@@ -79,7 +79,7 @@
                         <div class="d-flex">
                            <h3 class="font-weight-semibold mb-0">4,51,25,896</h3>
                            <span class=" align-self-center ml-auto">
-                              <img width="20" src="<?php echo base_url('rupee.png');?>">
+                              <img src="<?php echo base_url('site_folder/rupee.png');?>" style="width: 20px; height: 20px;" />
                            </span>
                         </div>
                         <div>
@@ -95,7 +95,7 @@
                         <div class="d-flex">
                            <h3 class="font-weight-semibold mb-0">1,45,78,523</h3>
                            <span class=" align-self-center ml-auto">
-                              <img width="20" src="<?php echo base_url('rupee.png');?>">
+                              <img src="<?php echo base_url('site_folder/rupee.png');?>" style="width: 20px; height: 20px;" />
                            </span>
                         </div>
                         <div>

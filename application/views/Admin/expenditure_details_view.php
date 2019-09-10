@@ -107,7 +107,7 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY_FULL($expenditure_details_info->date);?>
+                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date);?>
                            </div>
                         </div>
                      </div>  
@@ -183,7 +183,7 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Transaction / Cheque Date</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY_FULL($expenditure_details_info->transaction_date); ?>
+                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->transaction_date); ?>
                            </div>
                         </div>
                      </div>
@@ -226,7 +226,7 @@
                            <div class="form-group row">
                               <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                               <div class="col-md-12 col-sm-12 col-xs-12">
-                                 <?php echo $this->customlib->get_DDMMYYYY_FULL($expenditure_details_info->status_date); ?>
+                                 <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->status_date); ?>
                               </div>
                            </div>
                      </div>
@@ -253,7 +253,7 @@
                            <div class="form-group row">
                               <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                               <div class="col-md-12 col-sm-12 col-xs-12">
-                                 <?php echo $this->customlib->get_DDMMYYYY_FULL($expenditure_details_info->cancel_date); ?>
+                                 <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->cancel_date); ?>
                               </div>
                            </div>
                      </div>

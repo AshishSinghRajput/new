@@ -103,7 +103,7 @@
                               <td class="text-right"><?php echo $this->customlib->inr_format($value->expenditure);?></td>
                               <td class="text-right"><?php echo $this->customlib->inr_format($value->funds_available);?></td>
                               <?php /*<td><?php echo $value->remarks;?></td>
-                              <td><?php if($value->status_id == 'Pending') {?>
+                              <td class="text-center"><?php if($value->status_id == 'Pending') {?>
                                     <span class="badge bg-grey-400"><?php echo $value->status_id;?></span>
                                  <?php } else if($value->status_id == 'In-Progress') {?>
                                     <span class="badge badge-info"><?php echo $value->status_id;?></span>

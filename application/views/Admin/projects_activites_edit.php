@@ -225,7 +225,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="col-md-4 col-sm-4 col-xs-12" style="display; none;">
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Supervisor Name <span class="text-hightlight">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">

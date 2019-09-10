@@ -89,7 +89,7 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY_FULL($fund_received_info->date);?>
+                              <?php echo $this->customlib->get_DDMMYYYY($fund_received_info->date);?>
                            </div>
                         </div>
                      </div>                      
@@ -97,12 +97,12 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheme Name</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $fund_received_info->project_id);
-                                    if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?>
+                              <a href="<?php echo base_url('Admin/Projects/view/'.base64_encode($fund_received_info->project_id));?>"><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $fund_received_info->project_id);
+                                    if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></a>
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-4 col-sm-4 col-xs-12">
+                     <div class="col-md-4 col-sm-4 col-xs-12" style="display: none;">
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Projects</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
@@ -157,7 +157,7 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Transaction / Cheque Date</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY_FULL($fund_received_info->transaction_date); ?>
+                              <?php echo $this->customlib->get_DDMMYYYY($fund_received_info->transaction_date); ?>
                            </div>
                         </div>
                      </div>
@@ -200,7 +200,7 @@
                            <div class="form-group row">
                               <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                               <div class="col-md-12 col-sm-12 col-xs-12">
-                                 <?php echo $this->customlib->get_DDMMYYYY_FULL($fund_received_info->status_date); ?>
+                                 <?php echo $this->customlib->get_DDMMYYYY($fund_received_info->status_date); ?>
                               </div>
                            </div>
                      </div>
@@ -227,7 +227,7 @@
                            <div class="form-group row">
                               <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                               <div class="col-md-12 col-sm-12 col-xs-12">
-                                 <?php echo $this->customlib->get_DDMMYYYY_FULL($fund_received_info->cancel_date); ?>
+                                 <?php echo $this->customlib->get_DDMMYYYY($fund_received_info->cancel_date); ?>
                               </div>
                            </div>
                      </div>

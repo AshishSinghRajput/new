@@ -342,7 +342,7 @@ class FundsReceived extends CI_Controller {
 
         $this->form_validation->set_message('required', '%s required');
         
-        $this->form_validation->set_rules('bill_no', 'Description of Bills', 'trim|required|max_length[20]');        
+        $this->form_validation->set_rules('bill_no', 'Description of Bills', 'trim|required|max_length[255]');        
         $this->form_validation->set_rules('date', 'Date', 'trim|required|max_length[20]');
 
         $this->form_validation->set_rules('project_id', 'Scheme Name', 'trim|required');

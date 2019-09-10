@@ -68,7 +68,7 @@
             <div class="card">
                 <div class="card-header header-elements-sm-inline">
                     <div class="ml-12" style="width: 100%; margin-top: 10px;">
-                        <h2><a href="<?php echo base_url('Admin/Projects/view/'.base64_encode($value->project_id));?>"><?php echo $project_activity_info->activity_name;?></a></h2>
+                        <h2><?php echo $project_activity_info->activity_name;?></h2>
                         <?php if ((!isset($this->session->flashdata)) && ($this->session->flashdata('ses_success'))) {?>
                         <div id="alert_message" class="alert alert-primary border-0 alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
@@ -96,8 +96,8 @@
                                     <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheme
                                         Name</label>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $project_activity_info->project_id);
-                                    if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?>
+                                    <a href="<?php echo base_url('Admin/Projects/view/'.base64_encode($project_activity_info->project_id));?>"><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $project_activity_info->project_id);
+                                    if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></a>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <?php /*<div class="col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group row">
                                     <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Name of
                                         Supervisor</label>
@@ -175,13 +175,13 @@
                               if(!empty($supervisor_info)) { echo $supervisor_info['0']->name;}?>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*/?>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group row">
                                     <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date of
                                         Start</label>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <?php echo $this->customlib->get_DDMMYYYY_FULL($project_activity_info->date_start);?>
+                                        <?php echo $this->customlib->get_DDMMYYYY($project_activity_info->date_start);?>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                                     <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheduled
                                         Date of Completion</label>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <?php echo $this->customlib->get_DDMMYYYY_FULL($project_activity_info->scheduled_date_completion);?>
+                                        <?php echo $this->customlib->get_DDMMYYYY($project_activity_info->scheduled_date_completion);?>
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                     <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Actual
                                         Date of Completion</label>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <?php echo $this->customlib->get_DDMMYYYY_FULL($project_activity_info->actual_date_completion);?>
+                                        <?php echo $this->customlib->get_DDMMYYYY($project_activity_info->actual_date_completion);?>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
             <div class="form-group row">
                 <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <?php echo $this->customlib->get_DDMMYYYY_FULL($project_activity_info->status_date); ?>
+                    <?php echo $this->customlib->get_DDMMYYYY($project_activity_info->status_date); ?>
                 </div>
             </div>
         </div>
@@ -283,7 +283,7 @@
             <div class="form-group row">
                 <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <?php echo $this->customlib->get_DDMMYYYY_FULL($project_activity_info->cancel_date); ?>
+                    <?php echo $this->customlib->get_DDMMYYYY($project_activity_info->cancel_date); ?>
                 </div>
             </div>
         </div>
@@ -358,7 +358,7 @@
                               if(!empty($project_activity_info)) { echo $project_activity_info['0']->activity_name;}?>
                                         </td>*/?>
                                         <td><?php echo $value->running_bill;?></td>
-                                        <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->date);?></td>
+                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->date);?></td>
                                         <td><?php echo $value->bill_no;?></td>
                                         <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank"
@@ -374,11 +374,11 @@
                                         <?php /*<td><?php $bank_info = $this->BankMstModel->get_record($value->bank_id);
                                         if (!empty($bank_info)) { echo $bank_info['0']->bank;} ?></td>
                                         <td><?php echo $value->transaction_no; ?></td>
-                                        <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->transaction_date); ?>
+                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->transaction_date); ?>
                                         </td>
                                         <td><?php echo $value->branch; ?></td>*/?>
                                         <td><?php echo $value->remarks;?></td>
-                                        <?php /*<td><?php if($value->status_id == 'Pending') {?>
+                                        <?php /*<td class="text-center"><?php if($value->status_id == 'Pending') {?>
                                         <span class="badge bg-grey-400"><?php echo $value->status_id;?></span>
                                         <?php } else if($value->status_id == 'In-Progress') {?>
                                         <span class="badge badge-info"><?php echo $value->status_id;?></span>
