@@ -112,7 +112,7 @@
                                     } ?>
                                         <input type="text" name="sanctioned_funds" id="sanctioned_funds"
                                             class="form-control" value="<?php echo $sanctioned_funds_value; ?>"
-                                            maxlength="10" />
+                                            maxlength="20" />
                                         <span
                                             class="badge badge-danger m-1"><?php echo form_error('sanctioned_funds'); ?></span>
                                     </div>
@@ -131,7 +131,7 @@
                                     } ?>
                                         <input type="text" name="funds_received" id="funds_received"
                                             class="form-control" value="<?php echo $funds_received_value; ?>"
-                                            maxlength="10" />
+                                            maxlength="20" />
                                         <span
                                             class="badge badge-danger m-1"><?php echo form_error('funds_received'); ?></span>
                                     </div>
@@ -149,7 +149,7 @@
                                        $interest_value = $projects_info->interest;
                                     } ?>
                                         <input type="text" name="interest" id="interest" class="form-control"
-                                            value="<?php echo $interest_value; ?>" maxlength="10" />
+                                            value="<?php echo $interest_value; ?>" maxlength="20" />
                                         <span
                                             class="badge badge-danger m-1"><?php echo form_error('interest'); ?></span>
                                     </div>
@@ -168,7 +168,7 @@
                                        $expenditure_value = $projects_info->expenditure;
                                     } ?>
                                         <input type="text" name="expenditure" id="expenditure" class="form-control"
-                                            value="<?php echo $expenditure_value; ?>" maxlength="10" />
+                                            value="<?php echo $expenditure_value; ?>" maxlength="20" />
                                         <span
                                             class="badge badge-danger m-1"><?php echo form_error('expenditure'); ?></span>
                                     </div>
@@ -187,7 +187,7 @@
                                     } ?>
                                         <input type="text" name="funds_available" id="funds_available"
                                             class="form-control" value="<?php echo $funds_available_value; ?>"
-                                            maxlength="10" />
+                                            maxlength="20" />
                                         <span
                                             class="badge badge-danger m-1"><?php echo form_error('funds_available'); ?></span>
                                     </div>
@@ -228,11 +228,11 @@
                                         <?php for($row = 0; $row < 5; $row++) {?>
                                         <tr>
                                             <td style="padding: 5px;"><?php $select_bank_id = '';
-                                          if ($this->input->post('submit')) {
-                                             $select_bank_id = $this->input->post('bank_id_'.$row);
-                                          } else if (!empty($projects_bank_info)) {
-                                             $select_bank_id = $projects_bank_info->bank_id;
-                                          } ?>
+                                                if ($this->input->post('submit')) {
+                                                    $select_bank_id = $this->input->post('bank_id_'.$row);
+                                                } else if (!empty($projects_bank_info)) {
+                                                    $select_bank_id = $projects_bank_info->bank_id;
+                                                } ?>
                                                 <select class="form-control" id="bank_id_<?php echo $row;?>"
                                                     name="bank_id_<?php echo $row;?>">
                                                     <option value="">Select Bank</option>
@@ -293,7 +293,7 @@
                                                 } ?>
                                                 <input type="text" id="balance_<?php echo $row;?>"
                                                     name="balance_<?php echo $row;?>" placeholder="Enter balance"
-                                                    class="form-control" value="<?php echo $balance; ?>" maxlength="10" />
+                                                    class="form-control" value="<?php echo $balance; ?>" maxlength="20" />
                                                 <span
                                                     class="badge badge-danger m-1"><?php echo form_error('balance_'.$row); ?></span>
                                             </td>

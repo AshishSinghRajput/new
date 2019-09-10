@@ -57,6 +57,7 @@
          <div class="card">
             <div class="card-header header-elements-sm-inline">
                <div class="ml-12" style="width: 100%; margin-top: 10px;">
+                  <h2><?php echo $projects_info->project_name;?></h2>
                   <?php if ((!isset($this->session->flashdata)) && ($this->session->flashdata('ses_success'))) {?>
                      <div id="alert_message" class="alert alert-primary border-0 alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
@@ -75,15 +76,7 @@
             <div class="card-body">
                <form action="<?php echo base_url('Admin/Projects/edit/'.base64_encode($project_id));?>" method="post" enctype="multipart/form-data" accept-charset="utf-8" style="margin: 0px;">
                   <div class="row">
-                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheme Name</label>
-                           <div class="col-md-12 col-sm-12 col-xs-12">
-                              <h2><?php echo $projects_info->project_name;?></h2>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-6 col-sm-6 col-xs-12">
+                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Remarks</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
@@ -315,7 +308,7 @@
                               <td><?php echo $sr; $sr++; //$value->project_activity_id;?></td>
                               <?php /*<td><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $value->project_id);
                                         if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></td>*/?>
-                              <td><?php echo $value->activity_name;?></td>
+                              <td><a href="<?php echo base_url('Admin/ActivitesUnderProject/view/'.base64_encode($value->project_activity_id));?>"><?php echo $value->activity_name;?></a></td>
                               <td><?php echo $value->address;?></td>
                               <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank" href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?></td>
@@ -403,7 +396,7 @@
                         <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
                            <li class="nav-item"><a href="#highlighted-tab1" class="nav-link active" data-toggle="tab">Ledger</a></li>
                            <li class="nav-item"><a href="#highlighted-tab2" class="nav-link" data-toggle="tab">Fund Received</a></li>
-                           <li class="nav-item"><a href="#highlighted-tab3" class="nav-link" data-toggle="tab">Expenditure Incurred</a></li>
+                           <?php /*<li class="nav-item"><a href="#highlighted-tab3" class="nav-link" data-toggle="tab">Expenditure Incurred</a></li>*/?>
                            <li class="nav-item"><a href="#highlighted-tab4" class="nav-link" data-toggle="tab">Interest</a></li>
                         </ul>
                         <div class="tab-content">
@@ -541,15 +534,14 @@
                                  <p><?php echo $this->lang->line('no_record_found');?></p>
                               <?php }?>
                            </div>
-
-                           <div class="tab-pane fade" id="highlighted-tab3">
+                           <?php /*<div class="tab-pane fade" id="highlighted-tab3">
                               <?php if(!empty($expenditure_details_info)) {?>
                               <div class="table-responsive">
                                  <table class="table datatable-basic table-bordered">
                                     <thead>
                                        <tr>
                                           <?php /*<th class="text-center">Sr.No.</th>
-                                          <th class="text-center" style="width: 200px;">Scheme_Name</th>*/?>
+                                          <th class="text-center" style="width: 200px;">Scheme_Name</th>*//*?>
                                           <th class="text-center" style="width: 200px;">Projects</th>
                                           <th class="text-center">Running_Bill</th>
                                           <th class="text-center" style="width: 100px;">Date</th>
@@ -561,10 +553,10 @@
                                           <?php /*<th class="text-center">Bank Name</th>
                                           <th class="text-center">Transaction / Cheque No.</th>
                                           <th class="text-center">Transaction / Cheque Date</th>
-                                          <th class="text-center">Branch</th>*/?>
+                                          <th class="text-center">Branch</th>*//*?>
                                           <th class="text-center">Remarks</th>
                                           <?php /*<th class="text-center">Status</th>
-                                          <th class="text-center">Cancel</th>*/?>
+                                          <th class="text-center">Cancel</th>*//*?>
                                           <th class="text-center">Action</th>
                                        </tr>
                                     </thead>
@@ -574,7 +566,7 @@
                                        <tr>
                                           <?php /*<td><?php echo $sr; $sr++; //$value->expenditure_id;?></td>
                                           <td><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $value->project_id);
-                                                   if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></td>*/?>
+                                                   if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></td>*//*?>
                                           <td><?php $project_activity_info = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '', $value->project_activity_id);
                                           if(!empty($project_activity_info)) { echo $project_activity_info['0']->activity_name;}?></td>
                                           <td><?php echo $value->running_bill;?></td>
@@ -590,7 +582,7 @@
                                                    if (!empty($bank_info)) { echo $bank_info['0']->bank;} ?></td>
                                           <td><?php echo $value->transaction_no; ?></td>
                                           <td><?php echo $this->customlib->get_DDMMYYYY_FULL($value->transaction_date); ?></td>
-                                          <td><?php echo $value->branch; ?></td>*/?>
+                                          <td><?php echo $value->branch; ?></td>*//*?>
                                           <td><?php echo $value->remarks;?></td>
                                           <?php /*<td><?php if($value->status_id == 'Pending') {?>
                                                 <span class="badge bg-grey-400"><?php echo $value->status_id;?></span>
@@ -602,7 +594,7 @@
                                                 <span class="badge badge-danger"><?php echo $value->status_id;?></span>
                                              <?php }?>                              
                                           </td>
-                                          <td class="text-center"><?php if ($value->is_cancel == 'Yes') { ?><span class="badge badge-danger">Yes</span><?php } else if ($value->is_cancel == 'No') { ?><span class="badge badge-primary">No</span><?php } ?></td>*/?>
+                                          <td class="text-center"><?php if ($value->is_cancel == 'Yes') { ?><span class="badge badge-danger">Yes</span><?php } else if ($value->is_cancel == 'No') { ?><span class="badge badge-primary">No</span><?php } ?></td>*//*?>
                                           <td class="text-center">
                                              <div class="list-icons">
                                                 <div class="list-icons-item dropdown">
@@ -629,8 +621,7 @@
                               <?php } else {?>
                                  <p><?php echo $this->lang->line('no_record_found');?></p>
                               <?php }?>
-                           </div>
-
+                           </div>*/?>
                            <div class="tab-pane fade" id="highlighted-tab4">
                               <?php if(!empty($interest_info)) {?>
                               <div class="table-responsive">
@@ -738,9 +729,6 @@
                <form action="<?php echo base_url('Admin/Projects/edit/'.base64_encode($project_id));?>" method="post" enctype="multipart/form-data" accept-charset="utf-8" style="margin: 0px;">
                   <div class="row">
                      <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="card-header header-elements-inline">
-                           <h6 class="card-title">Bank Details</h6>
-                        </div>
                         <div class="table-responsive">
                            <table class="table datatable-basic">
                               <thead>
@@ -756,7 +744,7 @@
                               <tbody>
                               <?php if(!empty($projects_bank_info)) {?>
                               <?php $sr = 1;
-                                 foreach($projects_bank_info as $value) {?>
+                                    foreach($projects_bank_info as $value) {?>
                                  <tr>
                                     <td><?php echo $sr; $sr++; //$value->project_id;?></td>
                                     <td style="padding: 5px;">
@@ -765,7 +753,7 @@
                                     <td style="padding: 5px;"><?php echo $value->account_no;?></td>
                                     <td style="padding: 5px;"><?php echo $value->ifsc_code;?></td>
                                     <td style="padding: 5px;"><?php echo $value->branch;?></td>
-                                    <td style="padding: 5px;"><?php echo $this->customlib->inr_format(15000000);?></td>
+                                    <td style="padding: 5px;" class="text-right"><?php echo $this->customlib->inr_format($value->balance);?></td>
                                  </tr>
                                  <?php }?>
                                  <?php }?>

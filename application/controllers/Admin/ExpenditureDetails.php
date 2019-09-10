@@ -388,8 +388,8 @@ class ExpenditureDetails extends CI_Controller {
         $this->form_validation->set_rules('contractor_id', 'Contractor Name', 'trim|required');
         $this->form_validation->set_rules('contractor_bank_id', 'Contractor Bank', 'trim|required');
         
-        $this->form_validation->set_rules('gross_amount', 'Gross Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('net_amount_released', 'Net Amount Payable', 'trim|required|numeric|min_length[1]|max_length[10]');
+        $this->form_validation->set_rules('gross_amount', 'Gross Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('net_amount_released', 'Net Amount Payable', 'trim|required|numeric|min_length[1]|max_length[20]');
         
         $this->form_validation->set_rules('payment_mode_id', 'Payment Mode', 'trim|required');
         if($this->input->post('payment_mode_id') != '1') {

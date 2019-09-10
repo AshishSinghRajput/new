@@ -137,7 +137,7 @@
                                     } else if (!empty($project_activity_info)) {
                                        $funds_allocated_value = $project_activity_info->funds_allocated;
                                     } ?>
-                                 <input type="text" name="funds_allocated" id="funds_allocated" class="form-control" value="<?php echo $funds_allocated_value; ?>" maxlength="10" />
+                                 <input type="text" name="funds_allocated" id="funds_allocated" class="form-control" value="<?php echo $funds_allocated_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('funds_allocated'); ?></span>
                            </div>
                         </div>
@@ -152,7 +152,7 @@
                                     } else if (!empty($project_activity_info)) {
                                        $sanction_amount_value = $project_activity_info->sanction_amount;
                                     } ?>
-                                 <input type="text" name="sanction_amount" id="sanction_amount" class="form-control" value="<?php echo $sanction_amount_value; ?>" maxlength="10" />
+                                 <input type="text" name="sanction_amount" id="sanction_amount" class="form-control" value="<?php echo $sanction_amount_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('sanction_amount'); ?></span>
                            </div>
                         </div>
@@ -167,7 +167,7 @@
                                     } else if (!empty($project_activity_info)) {
                                        $dnit_amount_value = $project_activity_info->dnit_amount;
                                     } ?>
-                                 <input type="text" name="dnit_amount" id="dnit_amount" class="form-control" value="<?php echo $dnit_amount_value; ?>" maxlength="10" />
+                                 <input type="text" name="dnit_amount" id="dnit_amount" class="form-control" value="<?php echo $dnit_amount_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('dnit_amount'); ?></span>
                            </div>
                         </div>
@@ -182,7 +182,7 @@
                                     } else if (!empty($project_activity_info)) {
                                        $allotment_below_above_value = $project_activity_info->allotment_below_above;
                                     } ?>
-                                 <input type="text" name="allotment_below_above" id="allotment_below_above" class="form-control" value="<?php echo $allotment_below_above_value; ?>" maxlength="10" />
+                                 <input type="text" name="allotment_below_above" id="allotment_below_above" class="form-control" value="<?php echo $allotment_below_above_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('allotment_below_above'); ?></span>
                            </div>
                         </div>
@@ -197,7 +197,7 @@
                                     } else if (!empty($project_activity_info)) {
                                        $allotment_amount_value = $project_activity_info->allotment_amount;
                                     } ?>
-                                 <input type="text" name="allotment_amount" id="allotment_amount" class="form-control" value="<?php echo $allotment_amount_value; ?>" maxlength="10" />
+                                 <input type="text" name="allotment_amount" id="allotment_amount" class="form-control" value="<?php echo $allotment_amount_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('allotment_amount'); ?></span>
                            </div>
                         </div>
@@ -280,7 +280,7 @@
                      </div>
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Extension if any <span class="text-hightlight">*</span></label>
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Extension if any <span class="text-hightlight" style="display: none;">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <?php $extension_value = '';
                                  if($this->input->post('submit')) {
@@ -288,7 +288,7 @@
                                  } else if(!empty($project_activity_info)) {
                                     $extension_value = $project_activity_info->extension;
                                  }?>
-                              <input type="text" required id="extension" name="extension" placeholder="Enter your extension" class="form-control" maxlength="255" value="<?php echo $extension_value;?>" />
+                              <input type="text" id="extension" name="extension" placeholder="Enter your extension" class="form-control" maxlength="255" value="<?php echo $extension_value;?>" />
                               <span class="badge badge-danger m-1"><?php echo form_error('extension');?></span>
                            </div>
                         </div>
@@ -303,7 +303,7 @@
                                     } else if (!empty($project_activity_info)) {
                                        $expenditure_released_value = $project_activity_info->expenditure_released;
                                     } ?>
-                                 <input type="text" name="expenditure_released" id="expenditure_released" class="form-control" value="<?php echo $expenditure_released_value; ?>" maxlength="10" />
+                                 <input type="text" name="expenditure_released" id="expenditure_released" class="form-control" value="<?php echo $expenditure_released_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('expenditure_released'); ?></span>
                            </div>
                         </div>

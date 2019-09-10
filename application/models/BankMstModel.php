@@ -7,7 +7,7 @@ class BankMstModel extends CI_Model {
     public function get_record($bank_id = '') {
         $query = "SELECT `bank_id`, `bank`, `display`, `priority`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip` FROM `bank` ";
         $is_where = '';
-        if(($bank_id != '') && ($bank_id != '0') && ($bank_id != 'null')) {
+        if(($bank_id != '') && ($bank_id != 'null')) {
             if($is_where == '') {
                 $query.= "WHERE ";
                 $is_where++;

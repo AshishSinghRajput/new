@@ -347,19 +347,20 @@ class ActivitesUnderProject extends CI_Controller {
         
         $this->form_validation->set_rules('project_id', 'Scheme Name', 'trim|required');
         $this->form_validation->set_rules('activity_name', 'Projects', 'trim|required|max_length[255]');
-        $this->form_validation->set_rules('address', 'Address', 'trim|max_length[255]');
-        $this->form_validation->set_rules('funds_allocated', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('sanction_amount', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('dnit_amount', 'DNIT Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('allotment_below_above', 'Allotment Below / above', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('allotment_amount', 'Allotment Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
+        $this->form_validation->set_rules('address', 'Address'
+        , 'trim|max_length[255]');
+        $this->form_validation->set_rules('funds_allocated', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('sanction_amount', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('dnit_amount', 'DNIT Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('allotment_below_above', 'Allotment Below / above', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('allotment_amount', 'Allotment Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
         $this->form_validation->set_rules('contractor_id', 'Contractor Name', 'trim|required');
-        $this->form_validation->set_rules('supervisor_id', 'Supervisor Name', 'trim|required');
+        $this->form_validation->set_rules('supervisor_id', 'Supervisor Name', 'trim');
         $this->form_validation->set_rules('date_start', 'Date of Start', 'trim|required|max_length[20]');
         $this->form_validation->set_rules('scheduled_date_completion', 'Scheduled Date of Completion', 'trim|required|max_length[20]');
         $this->form_validation->set_rules('extension', 'Extension if any', 'trim|max_length[255]');
         $this->form_validation->set_rules('actual_date_completion', 'Actual Date of Completion', 'trim|required|max_length[20]');
-        $this->form_validation->set_rules('expenditure_released', 'Expenditure / payment release', 'trim|required|numeric|min_length[1]|max_length[10]');
+        $this->form_validation->set_rules('expenditure_released', 'Expenditure / payment release', 'trim|required|numeric|min_length[1]|max_length[20]');
         $this->form_validation->set_rules('remarks', 'Remarks', 'trim|max_length[255]');
 	}
 	

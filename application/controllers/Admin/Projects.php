@@ -82,6 +82,8 @@ class Projects extends CI_Controller {
        
         $data['project_activity_list'] = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, $project_id);
        
+        $data['projects_bank_info'] = $this->ProjectsBankMstModel->get_record($login_info->department_id, $project_id);
+
         $data['fund_received_info'] = $this->FundReceivedMstModel->get_record($login_info->department_id, $project_id);
        
         $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id, $project_id);
@@ -168,6 +170,26 @@ class Projects extends CI_Controller {
             
             $project_id = $this->ProjectsMstModel->add($projects_data);
             
+            for($row = 0; $row < 5; $row++) {
+
+                $projects_bank_data['department_id'] = $login_info->department_id;            
+                $projects_bank_data['project_id'] = $project_id;           
+                $projects_bank_data['bank_id'] = $this->input->post('bank_id_'.$row);            
+                $projects_bank_data['account_no'] = $this->input->post('account_no_'.$row);            
+                $projects_bank_data['ifsc_code'] = $this->input->post('ifsc_code_'.$row);
+                $projects_bank_data['branch'] = $this->input->post('branch_'.$row);            
+                $projects_bank_data['balance'] = $this->input->post('balance_'.$row);
+                $projects_bank_data['finyear_id'] = $finyear_info->finyear_id;
+                $projects_bank_data['created_date'] = date('Y-m-d', mktime(gmdate('H')+5, gmdate('i')+30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
+                $projects_bank_data['created_time'] = date('H:i:s', mktime(gmdate('H')+5, gmdate('i')+30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
+                $projects_bank_data['created_by'] = $login_info->users_id;
+                $projects_bank_data['created_name'] = $login_info->name;
+                $projects_bank_data['created_user_agent'] = $this->customlib->load_agent();
+                $projects_bank_data['created_ip'] = $this->input->ip_address();
+                
+                $projects_bank_id = $this->projects_bank_data->add($projects_bank_data);
+            }
+
             $this->db->trans_complete();
 
             if($project_id > 0) {                    
@@ -267,6 +289,29 @@ class Projects extends CI_Controller {
             
             $this->ProjectsMstModel->modify($projects_data, $projects_where);
             
+            for($row = 0; $row < 5; $row++) {
+
+                $projects_bank_data['bank_id'] = $this->input->post('bank_id_'.$row);            
+                $projects_bank_data['account_no'] = $this->input->post('account_no_'.$row);            
+                $projects_bank_data['ifsc_code'] = $this->input->post('ifsc_code_'.$row);
+                $projects_bank_data['branch'] = $this->input->post('branch_'.$row);            
+                $projects_bank_data['balance'] = $this->input->post('balance_'.$row);
+                $projects_bank_data['finyear_id'] = $finyear_info->finyear_id;
+                $projects_bank_data['updated_date'] = date('Y-m-d', mktime(gmdate('H')+5, gmdate('i')+30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
+                $projects_bank_data['updated_time'] = date('H:i:s', mktime(gmdate('H')+5, gmdate('i')+30, gmdate('s'), gmdate('m'), gmdate('d'), gmdate('Y')));
+                $projects_bank_data['updated_by'] = $login_info->users_id;
+                $projects_bank_data['updated_name'] = $login_info->name;
+                $projects_bank_data['updated_user_agent'] = $this->customlib->load_agent();
+                $projects_bank_data['updated_ip'] = $this->input->ip_address();
+
+                $projects_bank_where['department_id'] = $login_info->department_id;            
+                $projects_bank_where['project_id'] = $project_id;           
+                $projects_bank_where['projects_bank_id'] = $this->input->post('projects_bank_id_'.$row);
+                $projects_bank_where['finyear_id'] = $finyear_info->finyear_id;
+                
+                $this->ProjectsBankMstModel->modify($projects_bank_data, $projects_bank_where);
+            }
+
             $this->db->trans_complete();
                        
             $this->session->set_flashdata('ses_success', $this->lang->line('update_confirmation_message'));
@@ -328,11 +373,11 @@ class Projects extends CI_Controller {
 		$this->form_validation->set_message('required', '%s required');
         
         $this->form_validation->set_rules('project_name', 'Scheme Name', 'trim|required|max_length[255]');
-        $this->form_validation->set_rules('sanctioned_funds', 'Sanctioned funds', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('funds_received', 'Funds Received', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('interest', 'Interest', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('expenditure', 'Expenditure Incurred', 'trim|required|numeric|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('funds_available', 'Funds available', 'trim|required|numeric|min_length[1]|max_length[10]');
+        $this->form_validation->set_rules('sanctioned_funds', 'Sanctioned funds', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('funds_received', 'Funds Received', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('interest', 'Interest', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('expenditure', 'Expenditure Incurred', 'trim|required|numeric|min_length[1]|max_length[20]');
+        $this->form_validation->set_rules('funds_available', 'Funds available', 'trim|required|numeric|min_length[1]|max_length[20]');
         $this->form_validation->set_rules('remarks', 'Remarks', 'trim|max_length[255]');
         
         for($row = 0; $row < 5; $row++) {
@@ -341,7 +386,7 @@ class Projects extends CI_Controller {
                 $this->form_validation->set_rules('account_no_'.$row, 'Account No.', 'trim|is_natural|required|min_length[10]|max_length[20]');
                 $this->form_validation->set_rules('ifsc_code_'.$row, 'IFSC code', 'trim|required|max_length[20]');
                 $this->form_validation->set_rules('branch_'.$row, 'Branch', 'trim|required|max_length[255]');
-                $this->form_validation->set_rules('balance_'.$row, 'Balance', 'trim|required|numeric|min_length[1]|max_length[10]');
+                $this->form_validation->set_rules('balance_'.$row, 'Balance', 'trim|required|numeric|min_length[1]|max_length[20]');
             }
         }
 	}

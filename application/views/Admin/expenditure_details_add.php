@@ -397,7 +397,7 @@
                                     } else if (!empty($expenditure_details_info)) {
                                        $gross_amount_value = $expenditure_details_info->gross_amount;
                                     } ?>
-                                 <input type="text" name="gross_amount" id="gross_amount" class="form-control" value="<?php echo $gross_amount_value; ?>" maxlength="10" />
+                                 <input type="text" name="gross_amount" id="gross_amount" class="form-control" value="<?php echo $gross_amount_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('gross_amount'); ?></span>
                            </div>
                         </div>
@@ -412,7 +412,7 @@
                                     } else if (!empty($expenditure_details_info)) {
                                        $net_amount_released_value = $expenditure_details_info->net_amount_released;
                                     } ?>
-                                 <input type="text" name="net_amount_released" id="net_amount_released" class="form-control" value="<?php echo $net_amount_released_value; ?>" maxlength="10" />
+                                 <input type="text" name="net_amount_released" id="net_amount_released" class="form-control" value="<?php echo $net_amount_released_value; ?>" maxlength="20" />
                                  <span class="badge badge-danger m-1"><?php echo form_error('net_amount_released'); ?></span>
                            </div>
                         </div>

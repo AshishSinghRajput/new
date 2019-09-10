@@ -107,7 +107,7 @@
                               <td><?php echo $sr; $sr++; //$value->project_activity_id;?></td>
                               <td><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $value->project_id);
                                         if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></td>
-                              <td><?php echo $value->activity_name;?></td>
+                              <td><a href="<?php echo base_url('Admin/ActivitesUnderProject/view/'.base64_encode($value->project_activity_id));?>"><?php echo $value->activity_name;?></a></td>
                               <td><?php echo $value->address;?></td>
                               <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank" href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?></td>

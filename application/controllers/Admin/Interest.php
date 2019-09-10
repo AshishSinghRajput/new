@@ -347,8 +347,8 @@ class Interest extends CI_Controller {
 
         $this->form_validation->set_rules('project_id', 'Scheme Name', 'trim|required');
         //$this->form_validation->set_rules('project_activity_id', 'Projects', 'trim|required');
-        $this->form_validation->set_rules('gross_amount', 'Gross Amount', 'trim|required|numeric|min_length[1]|max_length[10]');
-        //$this->form_validation->set_rules('net_amount_released', 'Net Amount Released', 'trim|required|numeric|min_length[1]|max_length[10]');
+        $this->form_validation->set_rules('gross_amount', 'Gross Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
+        //$this->form_validation->set_rules('net_amount_released', 'Net Amount Released', 'trim|required|numeric|min_length[1]|max_length[20]');
         
         /*$this->form_validation->set_rules('payment_mode_id', 'Payment Mode', 'trim|required');
         if($this->input->post('payment_mode_id') != '1') {
