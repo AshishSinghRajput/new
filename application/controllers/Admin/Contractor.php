@@ -405,7 +405,7 @@ class Contractor extends CI_Controller {
         
         $this->form_validation->set_rules('firm_name', 'Firm Name', 'trim|required|max_length[255]');		
 		$this->form_validation->set_rules('owner_name', 'Owner Name', 'trim|max_length[255]');
-		$this->form_validation->set_rules('address', 'Address', 'trim|required|max_length[255]');	
+		$this->form_validation->set_rules('address', 'Address', 'trim|max_length[255]');	
 		$this->form_validation->set_rules('mobile', 'Mobile No.', 'trim|numeric|exact_length[10]');
 		$this->form_validation->set_rules('email', 'E-mail', 'trim|valid_email|max_length[255]');		
 		$this->form_validation->set_rules('website', 'Website', 'callback_valid_url');
@@ -417,9 +417,9 @@ class Contractor extends CI_Controller {
         for($row = 0; $row < 5; $row++) {
             if($this->input->post('bank_id_'.$row) != '') {
                 $this->form_validation->set_rules('bank_id_'.$row, 'Bank Name', 'trim|required');
-                $this->form_validation->set_rules('account_no_'.$row, 'Account No.', 'trim|is_natural|required|min_length[10]|max_length[20]');
-                $this->form_validation->set_rules('ifsc_code_'.$row, 'IFSC code', 'trim|required|max_length[20]');
-                $this->form_validation->set_rules('branch_'.$row, 'Branch', 'trim|required|max_length[255]');
+                $this->form_validation->set_rules('account_no_'.$row, 'Account No.', 'trim|is_natural|min_length[10]|max_length[20]');
+                $this->form_validation->set_rules('ifsc_code_'.$row, 'IFSC code', 'trim|max_length[20]');
+                $this->form_validation->set_rules('branch_'.$row, 'Branch', 'trim|max_length[255]');
             }
         }
 	}

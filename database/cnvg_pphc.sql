@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2019 at 03:10 PM
+-- Generation Time: Sep 15, 2019 at 08:19 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.2.18
 
@@ -225,30 +225,6 @@ CREATE TABLE `contractor` (
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `contractor`
---
-
-INSERT INTO `contractor` (`contractor_id`, `department_id`, `users_id`, `firm_name`, `owner_name`, `firm_type`, `address`, `mobile`, `email`, `website`, `aadhar_no`, `pan_no`, `gsin_no`, `remarks`, `status_id`, `status_date`, `status_remarks`, `is_cancel`, `cancel_date`, `cancel_reason`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
-(1, 1, 4, 'M/S A.J.Builders & contractors', '', 'Individual', 'House No. 14-+OB/334, Arya Samaj Block, Dhuri District Sangrur', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 1, 5, 'M/S Aranaya Buildcon and Engineers', '', 'Individual', 'H.No. 221, Kuh Wali Gali, Jawahar Nagar, Goniana Mandi, District Bathinda', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 1, 6, 'M/S Bhupinder Singh & Associates', '', 'Individual', 'GT Road Batala', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 1, 7, 'M/S P.K.Bansal& Contractor', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 1, 8, 'M/S Pepsu Constn CO', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 1, 9, 'M/S Raghu Nath goyal', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 1, 10, 'M/S Sai Construction CO', '', 'Individual', 'Hno. 27-A, Sector 18, Guru gian Vihar, Jawaddi, Ludhiana', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 1, 11, 'M/S Satpal Contractor', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 1, 12, 'M/S Shri Krishna Builders', '', 'Individual', 'House No. 5545, Sector 38, West, Chandigarh', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 1, 13, 'M/S Sohan Lal Ramesh Kumar', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 1, 14, 'M/S Thakur builders', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 1, 15, 'Raghu Nath Goyal', '', 'Individual', '# 286, Vishal Nagar, Phase II, Bathinda', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 1, 16, 'Shri Jatinder Kumar, Contractors', '', 'Individual', '61-B, Rose Enclave, Pakhowal, Ludhiana', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 1, 17, 'The Lango Mahal CO-OP L&C Society Ltd', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 1, 18, 'The Mohan Ke uttar CO-Op L&Csociety Ltd', '', 'Individual', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 1, 19, 'The Universal Co-op L&C Society Ltd.', '', 'Individual', 'Hno. 8861, St. No. 5/6 Kot Baba Deep Singh, Amritsar', '', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', '0000-00-00', '', 'No', '0000-00-00', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 1, 20, 'M/s Puneet Sharma & Associates', 'M/s Puneet Sharma & Associates', 'Individual', 'Zirakpur', '1234567890', 'a@g.com', '', '', 'ATCPS6597B', '03ATCPS6597B1ZM', NULL, 'Pending', '1900-01-01', '', 'No', '1900-01-01', NULL, '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(18, 1, 21, 'Shri Jatinder Kumar', '', 'Individual', 'Ludhiana', '', '', '', '', 'AAZPK2957R', '03AAZPK2957R1ZP', NULL, 'Pending', '1900-01-01', '', 'No', '1900-01-01', NULL, '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -277,23 +253,6 @@ CREATE TABLE `contractor_bank` (
   `updated_user_agent` text COLLATE utf8_unicode_ci,
   `updated_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `contractor_bank`
---
-
-INSERT INTO `contractor_bank` (`contractor_bank_id`, `department_id`, `users_id`, `contractor_id`, `bank_id`, `account_no`, `ifsc_code`, `branch`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
-(1, 1, 4, 1, 1, '1234567890', 'KOTAK00000000', NULL, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 1, 20, 17, 9, '178011100000690', 'ANDB0001780', 'Zirakpur', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(3, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(4, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(5, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(6, 1, 20, 17, 0, '', '', '', '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 1, 21, 18, 131, '70884600000298', 'YESB0000708', 'Ludhiana', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 1, 21, 18, 0, '', '', '', '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4632,7 +4591,49 @@ INSERT INTO `users_logs` (`users_logs_id`, `date`, `time`, `users_id`, `users_ty
 (842, '2019-09-10', '16:11:15', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:11:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
 (843, '2019-09-10', '16:12:15', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
 (844, '2019-09-10', '16:12:29', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:29', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
-(845, '2019-09-10', '16:12:48', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:48', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
+(845, '2019-09-10', '16:12:48', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/FundsReceived', '2019-09-10', '16:12:48', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(846, '2019-09-14', '19:46:39', 2, 2, 0, 'http://localhost/converge/TNHB-PMS/Login', '2019-09-14', '19:46:39', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(847, '2019-09-14', '19:46:39', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:46:39', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(848, '2019-09-14', '19:47:05', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:47:05', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(849, '2019-09-14', '19:48:00', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:48:00', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(850, '2019-09-14', '19:48:00', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:48:00', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(851, '2019-09-14', '19:48:15', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:48:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(852, '2019-09-14', '19:50:34', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:50:34', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(853, '2019-09-14', '19:51:06', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:51:06', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(854, '2019-09-14', '19:51:09', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Logout', '2019-09-14', '19:51:09', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(855, '2019-09-14', '19:53:15', 2, 2, 0, 'http://localhost/converge/TNHB-PMS/Login', '2019-09-14', '19:53:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(856, '2019-09-14', '19:53:16', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:53:16', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(857, '2019-09-14', '19:54:10', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:54:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(858, '2019-09-14', '19:54:23', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Logout', '2019-09-14', '19:54:23', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(859, '2019-09-14', '19:54:27', 2, 2, 0, 'http://localhost/converge/TNHB-PMS/Login', '2019-09-14', '19:54:27', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(860, '2019-09-14', '19:54:27', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:54:27', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(861, '2019-09-14', '19:55:50', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:55:50', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(862, '2019-09-14', '19:56:02', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:56:02', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(863, '2019-09-14', '19:56:34', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '19:56:34', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(864, '2019-09-14', '19:56:35', 2, 2, 6, 'http://localhost/converge/TNHB-PMS/Admin/Reports', '2019-09-14', '19:56:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(865, '2019-09-14', '19:57:12', 2, 2, 6, 'http://localhost/converge/TNHB-PMS/Admin/Reports', '2019-09-14', '19:57:12', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(866, '2019-09-14', '20:07:15', 2, 2, 6, 'http://localhost/converge/TNHB-PMS/Admin/Reports', '2019-09-14', '20:07:15', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(867, '2019-09-14', '20:07:21', 2, 2, 6, 'http://localhost/converge/TNHB-PMS/Admin/Reports', '2019-09-14', '20:07:21', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(868, '2019-09-14', '20:07:51', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '20:07:51', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(869, '2019-09-14', '20:07:57', 2, 2, 7, 'http://localhost/converge/TNHB-PMS/Admin/Projects', '2019-09-14', '20:07:57', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(870, '2019-09-14', '20:08:03', 2, 2, 7, 'http://localhost/converge/TNHB-PMS/Admin/Projects', '2019-09-14', '20:08:03', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(871, '2019-09-14', '20:08:06', 2, 2, 7, 'http://localhost/converge/TNHB-PMS/Admin/Projects', '2019-09-14', '20:08:06', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(872, '2019-09-14', '20:08:33', 2, 2, 7, 'http://localhost/converge/TNHB-PMS/Admin/Projects', '2019-09-14', '20:08:33', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(873, '2019-09-14', '20:08:35', 2, 2, 7, 'http://localhost/converge/TNHB-PMS/Admin/Projects', '2019-09-14', '20:08:35', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(874, '2019-09-14', '20:08:58', 2, 2, 0, 'http://localhost/converge/TNHB-PMS/Login', '2019-09-14', '20:08:58', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(875, '2019-09-14', '20:08:59', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/Admin/Dashboard', '2019-09-14', '20:08:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(876, '2019-09-14', '20:09:06', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/ChangeProfile', '2019-09-14', '20:09:06', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(877, '2019-09-14', '20:09:10', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/ChangeProfile', '2019-09-14', '20:09:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(878, '2019-09-14', '20:09:10', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/ChangeProfile', '2019-09-14', '20:09:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(879, '2019-09-14', '20:09:17', 2, 2, 1, 'http://localhost/converge/TNHB-PMS/ChangeProfile', '2019-09-14', '20:09:17', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(880, '2019-09-14', '20:09:19', 2, 2, 7, 'http://localhost/converge/TNHB-PMS/Admin/ManageBank', '2019-09-14', '20:09:19', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(881, '2019-09-14', '20:09:30', 2, 2, 13, 'http://localhost/converge/TNHB-PMS/Admin/ManageUsers', '2019-09-14', '20:09:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(882, '2019-09-14', '20:10:24', 2, 2, 13, 'http://localhost/converge/TNHB-PMS/Admin/ManageUsers', '2019-09-14', '20:10:24', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(883, '2019-09-15', '11:41:55', 2, 2, 0, 'http://localhost/converge/PPHCL/Login', '2019-09-15', '11:41:55', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(884, '2019-09-15', '11:41:56', 2, 2, 1, 'http://localhost/converge/PPHCL/Admin/Dashboard', '2019-09-15', '11:41:56', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(885, '2019-09-15', '11:42:26', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor', '2019-09-15', '11:42:26', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(886, '2019-09-15', '11:42:30', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-15', '11:42:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL),
+(887, '2019-09-15', '11:49:02', 2, 2, 7, 'http://localhost/converge/PPHCL/Admin/Contractor/add', '2019-09-15', '11:49:02', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4676,26 +4677,8 @@ CREATE TABLE `users_mst` (
 
 INSERT INTO `users_mst` (`users_id`, `department_id`, `name`, `images`, `thumbnail1`, `thumbnail2`, `mobile`, `email`, `username`, `password`, `forgot_psw`, `users_type_id`, `activation`, `activation_link`, `tokenid`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
 (1, 0, 'Abhishek Diwan', '3218fff2b5be4540dcbb62b7eb389975.jpg', '3218fff2b5be4540dcbb62b7eb389975.jpg', '3218fff2b5be4540dcbb62b7eb389975.jpg', '8305326317', 'superadmin@cnvg.in', 'superadmin', 'e10adc3949ba59abbe56e057f20f883e', '123456', 1, 1, NULL, NULL, '2015-09-15', '00:00:00', 1, '', '', '127.0.0.1', '2019-07-16', '11:15:11', 2, 'Abhishek Diwan', 'Chrome 75.0.3770.100, Windows 10', '::1'),
-(2, 1, 'Abhishek Diwan', '', '', '', '8305326317', 'admin@cnvg.in', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, 1, NULL, NULL, '2015-09-15', '00:00:00', 1, '', '', '127.0.0.1', '2019-09-02', '18:36:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(3, 1, 'Abhishek Diwan', '', '', '', '8305326317', 'operator@cnvg.in', 'operator', 'e10adc3949ba59abbe56e057f20f883e', '123456', 3, 1, NULL, NULL, '2015-09-15', '00:00:00', 1, '', '', '127.0.0.1', '2018-10-29', NULL, 1, 'Abhishek Diwan', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '::1'),
-(4, 1, 'M/S A.J.Builders & contractors', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 1, 'M/S Aranaya Buildcon and Engineers', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 1, 'M/S Bhupinder Singh & Associates', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 1, 'M/S P.K.Bansal& Contractor', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 1, 'M/S Pepsu Constn CO', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 1, 'M/S Raghu Nath goyal', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 1, 'M/S Sai Construction CO', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 1, 'M/S Satpal Contractor', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 1, 'M/S Shri Krishna Builders', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 1, 'M/S Sohan Lal Ramesh Kumar', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 1, 'M/S Thakur builders', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 1, 'Raghu Nath Goyal', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 1, 'Shri Jatinder Kumar, Contractors', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 1, 'The Lango Mahal CO-OP L&C Society Ltd', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(18, 1, 'The Mohan Ke uttar CO-Op L&Csociety Ltd', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 1, 'The Universal Co-op L&C Society Ltd.', '', '', '', '', '', '', '', '', 5, 1, '', '', '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 1, 'M/s Puneet Sharma & Associates', '', '', '', '1234567890', 'a@g.com', '', '282e057f17da21a1807019678f4bc7c6', '523464', 5, 1, NULL, NULL, '2019-09-10', '12:33:45', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', '2019-09-10', '15:25:30', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
-(21, 1, 'Shri Jatinder Kumar', '', '', '', '', '', '', '2237daa3851e0936300f72368c5daf4e', '244310', 5, 1, NULL, NULL, '2019-09-10', '14:58:59', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1', NULL, NULL, NULL, NULL, NULL, NULL);
+(2, 1, 'Abhishek Diwan', '', '', '', '8305326317', 'admin@cnvg.in', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, 1, NULL, NULL, '2015-09-15', '00:00:00', 1, '', '', '127.0.0.1', '2019-09-14', '20:09:10', 2, 'Abhishek Diwan', 'Chrome 76.0.3809.132, Windows 10', '::1'),
+(3, 1, 'Abhishek Diwan', '', '', '', '8305326317', 'operator@cnvg.in', 'operator', 'e10adc3949ba59abbe56e057f20f883e', '123456', 3, 1, NULL, NULL, '2015-09-15', '00:00:00', 1, '', '', '127.0.0.1', '2018-10-29', NULL, 1, 'Abhishek Diwan', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '::1');
 
 -- --------------------------------------------------------
 
@@ -4739,20 +4722,19 @@ CREATE TABLE `users_permission` (
 
 INSERT INTO `users_permission` (`permission_id`, `users_type_id`, `heading`, `master_permission_id`, `url`, `is_navigation`, `is_search`, `is_list`, `is_view`, `is_add`, `is_edit`, `is_delete`, `is_prints`, `display`, `priority`, `created_date`, `created_time`, `created_by`, `created_name`, `created_user_agent`, `created_ip`, `updated_date`, `updated_time`, `updated_by`, `updated_name`, `updated_user_agent`, `updated_ip`) VALUES
 (1, 2, 'Dashboard', 0, 'Admin/Dashboard', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1000, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 2, 'Scheme Details', 0, 'Admin/Projects', 1, 1, 1, 1, 1, 1, 1, 1, 1, 999, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 2, 'Scheme', 0, 'Admin/Projects', 1, 1, 1, 1, 1, 1, 1, 1, 1, 999, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 2, 'Projects', 0, 'Admin/ActivitesUnderProject', 1, 1, 1, 1, 1, 1, 1, 1, 1, 998, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 2, 'Funds Received Details', 0, 'Admin/FundsReceived', 1, 1, 1, 1, 1, 0, 1, 1, 1, 997, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 2, 'Expenditure Details', 0, 'Admin/ExpenditureDetails', 1, 1, 1, 1, 1, 0, 1, 1, 1, 996, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 2, 'Interest Details', 0, 'Admin/Interest', 1, 1, 1, 1, 1, 0, 1, 1, 1, 995, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 2, 'FDR Details', 0, 'Admin/FDRDetails', 1, 1, 1, 1, 1, 0, 1, 1, 1, 994, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 2, 'Details of Contractor', 0, 'Admin/Contractor', 1, 1, 1, 1, 1, 1, 1, 1, 1, 993, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 2, 'Details of Engineers/Supervisor', 0, 'Admin/Supervisor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 992, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 2, 'MIS & Reports', 0, 'Admin/Reports', 1, 1, 1, 1, 1, 1, 1, 1, 1, 991, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 2, 'Bank', 0, 'Admin/ManageBank', 1, 1, 1, 1, 1, 1, 1, 1, 1, 990, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 2, 'Payment Mode', 0, '#', 1, 1, 1, 1, 1, 1, 1, 1, 1, 989, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 2, 'Manage Users', 0, 'Admin/ManageUsers', 1, 1, 1, 1, 1, 1, 1, 1, 1, 988, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 2, 'Manage Users Type', 0, 'Admin/ManageUsersType', 1, 1, 1, 1, 1, 1, 1, 1, 1, 987, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 2, 'Manage Permission', 0, 'Admin/ManagePermission', 1, 1, 1, 1, 1, 1, 1, 1, 1, 986, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 2, 'Funds Received Details', 0, 'Admin/FundsReceived', 1, 1, 1, 1, 1, 1, 1, 1, 1, 997, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 2, 'Expenditure Details', 0, 'Admin/ExpenditureDetails', 1, 1, 1, 1, 1, 1, 1, 1, 1, 996, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 2, 'Interest Details', 0, 'Admin/Interest', 1, 1, 1, 1, 1, 1, 1, 1, 1, 995, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 2, 'Details of Contractor', 0, 'Admin/Contractor', 1, 1, 1, 1, 1, 1, 1, 1, 1, 994, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 2, 'Details of Engineers/Supervisor', 0, 'Admin/Supervisor', 1, 1, 1, 1, 1, 1, 1, 1, 1, 993, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 2, 'MIS & Reports', 0, 'Admin/Reports', 1, 1, 1, 1, 1, 1, 1, 1, 1, 992, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 2, 'Bank', 0, 'Admin/ManageBank', 1, 1, 1, 1, 1, 1, 1, 1, 1, 991, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 2, 'Payment Mode', 0, '#', 1, 1, 1, 1, 1, 1, 1, 1, 1, 990, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 2, 'Manage Users', 0, 'Admin/ManageUsers', 1, 1, 1, 1, 1, 1, 1, 1, 1, 989, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 2, 'Manage Users Type', 0, 'Admin/ManageUsersType', 1, 1, 1, 1, 1, 1, 1, 1, 1, 988, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 2, 'Manage Permission', 0, 'Admin/ManagePermission', 1, 1, 1, 1, 1, 1, 1, 1, 1, 987, '0000-00-00', '00:00:00', 0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4980,13 +4962,13 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `contractor`
 --
 ALTER TABLE `contractor`
-  MODIFY `contractor_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `contractor_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contractor_bank`
 --
 ALTER TABLE `contractor_bank`
-  MODIFY `contractor_bank_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `contractor_bank_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -5076,19 +5058,19 @@ ALTER TABLE `supervisor`
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `users_logs_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=846;
+  MODIFY `users_logs_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=888;
 
 --
 -- AUTO_INCREMENT for table `users_mst`
 --
 ALTER TABLE `users_mst`
-  MODIFY `users_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `users_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users_permission`
 --
 ALTER TABLE `users_permission`
-  MODIFY `permission_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `permission_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users_type`

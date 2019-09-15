@@ -90,7 +90,7 @@
                            } else if (!empty($contractor_info)) {
                               $firm_name_value = $contractor_info->firm_name;
                            } ?>
-                                        <input type="text" required id="firm_name" name="firm_name"
+                                        <input type="text" id="firm_name" name="firm_name"
                                             placeholder="Enter your firm name" class="form-control" maxlength="255"
                                             value="<?php echo $firm_name_value; ?>" />
                                         <span
@@ -165,7 +165,7 @@
                            } else if (!empty($contractor_info)) {
                               $address_value = $contractor_info->address;
                            } ?>
-                                        <input type="text" required id="address" name="address"
+                                        <input type="text" id="address" name="address"
                                             placeholder="Enter your address" class="form-control" maxlength="255"
                                             value="<?php echo $address_value; ?>" />
                                         <span class="badge badge-danger m-1"><?php echo form_error('address'); ?></span>
