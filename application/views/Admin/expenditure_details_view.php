@@ -81,8 +81,18 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Scheme Name</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $expenditure_details_info->project_id);
-                                    if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?>
+                           <?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $expenditure_details_info->project_id);
+                                       if(!empty($projects_info)) {?><a target="_blank"
+                                                href="<?php echo base_url('Admin/Projects/view/'.base64_encode($expenditure_details_info->project_id));?>"><?php echo $projects_info['0']->project_name;?></a><?php }?>
+                           </div>
+                        </div>
+                     </div>                    
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Payment Bank</label>
+                           <div class="col-md-12 col-sm-12 col-xs-12">
+                           <?php $projects_bank_info = $this->ProjectsBankMstModel->get_select($login_info->department_id, '', $expenditure_details_info->projects_bank_id);
+                                    if(!empty($projects_bank_info)) { echo $projects_bank_info['0']->bank.' || '.$projects_bank_info['0']->account_no;}?>
                            </div>
                         </div>
                      </div>
@@ -90,8 +100,9 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Projects</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php $project_activity_info = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '', $expenditure_details_info->project_activity_id);
-                                    if(!empty($project_activity_info)) { echo $project_activity_info['0']->activity_name;}?>
+                           <?php $project_activity_info = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '', $expenditure_details_info->project_activity_id);
+                                       if(!empty($project_activity_info)) {?><a target="_blank"
+                                                href="<?php echo base_url('Admin/ActivitesUnderProject/view/'.base64_encode($expenditure_details_info->project_activity_id));?>"><?php echo $project_activity_info['0']->activity_name;?></a><?php }?>
                            </div>
                         </div>
                      </div>    
@@ -105,9 +116,17 @@
                      </div>
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date</label>
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date of Submit Bill</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date);?>
+                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date_of_submit_bill);?>
+                           </div>
+                        </div>
+                     </div> 
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date of Payment</label>
+                           <div class="col-md-12 col-sm-12 col-xs-12">
+                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date_of_payment);?>
                            </div>
                         </div>
                      </div>  
@@ -150,6 +169,27 @@
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Net Amount Released</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <?php echo $this->customlib->inr_format($expenditure_details_info->net_amount_released);?>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Amount Released</label>
+                           <div class="col-md-12 col-sm-12 col-xs-12"><?php echo $this->customlib->inr_format($expenditure_details_info->amount_released);?>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Other contigent Payments/ Expenses</label>
+                           <div class="col-md-12 col-sm-12 col-xs-12"><?php echo $this->customlib->inr_format($expenditure_details_info->other_expenses);?>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Total Expenditure</label>
+                           <div class="col-md-12 col-sm-12 col-xs-12"><?php echo $this->customlib->inr_format($expenditure_details_info->total_expenditure);?>
                            </div>
                         </div>
                      </div>

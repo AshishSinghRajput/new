@@ -18,6 +18,20 @@ class ProjectsBankMstModel extends CI_Model {
 		return $results->result();
     }
     
+    public function get_select($department_id, $project_id = '', $projects_bank_id = '') {
+        $query = "SELECT `projects_bank`.`projects_bank_id`, `projects_bank`.`department_id`, `projects_bank`.`project_id`, `projects_bank`.`bank_id`, `bank`.`bank`, `projects_bank`.`account_no`, `projects_bank`.`ifsc_code`, `projects_bank`.`branch`, `projects_bank`.`balance`, `projects_bank`.`finyear_id`, `projects_bank`.`created_date`, `projects_bank`.`created_time`, `projects_bank`.`created_by`, `projects_bank`.`created_name`, `projects_bank`.`created_user_agent`, `projects_bank`.`created_ip`, `projects_bank`.`updated_date`, `projects_bank`.`updated_time`, `projects_bank`.`updated_by`, `projects_bank`.`updated_name`, `projects_bank`.`updated_user_agent`, `projects_bank`.`updated_ip` FROM `projects_bank` INNER JOIN `bank` ON `projects_bank`.`bank_id`=`bank`.`bank_id`";
+        $query.= "WHERE (`projects_bank`.`department_id` = '".$department_id."') ";
+        if(($project_id != '') && ($project_id != '0') && ($project_id != 'null')) {
+            $query.= "AND (`projects_bank`.`project_id` = '".$project_id."') ";
+        }
+        if(($projects_bank_id != '') && ($projects_bank_id != '0') && ($projects_bank_id != 'null')) {
+            $query.= "AND (`projects_bank`.`projects_bank_id` = '".$projects_bank_id."') ";
+        }
+        $query.= "ORDER BY `bank`.`bank`";
+        $results = $this->db->query($query);
+		return $results->result();
+    }
+    
     public function add($data) {
         $this->db->insert($this->table_name, $data);
 		return $this->db->insert_id(); 

@@ -18,7 +18,7 @@ class UsersMstModel extends CI_Model {
     public function get_record($users_id = '') {
         $query = "SELECT `users_mst`.`users_id`, `users_mst`.`department_id`, `department`.`department_name`, `users_mst`.`name`, `users_mst`.`images`, `users_mst`.`thumbnail1`, `users_mst`.`thumbnail2`, `users_mst`.`mobile`, `users_mst`.`email`, `users_mst`.`username`, `users_mst`.`password`, `users_mst`.`forgot_psw`, `users_mst`.`users_type_id`, `users_type`.`users_type`, `users_mst`.`activation`, `users_mst`.`activation_link`, `users_mst`.`created_date`, `users_mst`.`created_time`, `users_mst`.`created_by`, `users_mst`.`created_name`, `users_mst`.`created_user_agent`, `users_mst`.`created_ip`, `users_mst`.`updated_date`, `users_mst`.`updated_time`, `users_mst`.`updated_by`, `users_mst`.`updated_name`, `users_mst`.`updated_user_agent`, `users_mst`.`updated_ip` FROM `users_mst` LEFT JOIN `department` ON `users_mst`.`department_id`=`department`.`department_id` INNER JOIN `users_type` ON `users_mst`.`users_type_id`=`users_type`.`users_type_id` ";
         $is_where = '';
-        if(($users_id != '') && ($users_id != '0') && ($users_id != 'null')) {
+        if(($users_id != '') && ($users_id != 'null')) {
             if($is_where == '') {
                 $query.= "WHERE ";
                 $is_where++;

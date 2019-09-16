@@ -80,7 +80,7 @@ class ActivitesUnderProject extends CI_Controller {
         
         $data['project_activity_info'] = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '',$project_activity_id)['0'];
        
-        $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id);
+        $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id, '', $project_activity_id);
        
         $this->load->view('layout/header', $data);
         $this->load->view('Admin/projects_activites_view', $data);

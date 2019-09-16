@@ -327,16 +327,20 @@
                             <table class="table datatable-basic table-bordered">
                                 <thead>
                                     <tr>
-                                        <?php /*<th class="text-center">Sr.No.</th>
-                              <th class="text-center" style="width: 200px;">Scheme_Name</th>
-                              <th class="text-center" style="width: 200px;">Projects</th>*/?>
+                                        <?php /*<th class="text-center">Sr.No.</th>*/?>
+                                        <?php /*<th class="text-center" style="width: 200px;">Scheme_Name</th>
+                                        <th class="text-center" style="width: 200px;">Projects</th>*/?>
                                         <th class="text-center">Running_Bill</th>
-                                        <th class="text-center" style="width: 100px;">Date</th>
+                                        <th class="text-center" style="width: 100px;">Date_of_Submit_Bill</th>
+                                        <th class="text-center" style="width: 100px;">Date_of_payment</th>
                                         <th class="text-center">Description_of_Bills</th>
                                         <th class="text-center">Name_of_Contractor</th>
+                                        <th class="text-center">Payment_Mode</th>
                                         <th class="text-center">Gross_Amount</th>
                                         <th class="text-center">Net_Amount_Payable</th>
-                                        <th class="text-center">Payment_Mode</th>
+                                        <th class="text-center">Amount_Released</th>
+                                        <th class="text-center">Other_contigent_Payments/Expenses</th>
+                                        <th class="text-center">Tota_Expenditure</th>
                                         <?php /*<th class="text-center">Bank Name</th>
                               <th class="text-center">Transaction / Cheque No.</th>
                               <th class="text-center">Transaction / Cheque Date</th>
@@ -344,38 +348,48 @@
                                         <th class="text-center">Remarks</th>
                                         <?php /*<th class="text-center">Status</th>
                               <th class="text-center">Cancel</th>*/?>
-                                        <th class="text-center">Action</th>
+                                        <?php /*<th class="text-center">Action</th>*/?>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $sr = 1;
-                              foreach($expenditure_details_info as $value) {?>
+                                          foreach($expenditure_details_info as $value) {?>
                                     <tr>
-                                        <?php /*<td><?php echo $sr; $sr++; //$value->expenditure_id;?></td>
-                                        <td><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $value->project_id);
-                                        if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></td>
+                                        <?php /*<td><?php echo $sr; $sr++; //$value->expenditure_id;?></td>*/?>
+                                        <?php /*<td><?php $projects_info = $this->ProjectsMstModel->get_record($login_info->department_id, $value->project_id);
+                                       if(!empty($projects_info)) {?><a target="_blank"
+                                                href="<?php echo base_url('Admin/Projects/view/'.base64_encode($value->project_id));?>"><?php echo $projects_info['0']->project_name;?></a><?php }?>
+                                        </td>
                                         <td><?php $project_activity_info = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '', $value->project_activity_id);
-                              if(!empty($project_activity_info)) { echo $project_activity_info['0']->activity_name;}?>
+                                       if(!empty($project_activity_info)) {?><a target="_blank"
+                                                href="<?php echo base_url('Admin/ActivitesUnderProject/view/'.base64_encode($value->project_activity_id));?>"><?php echo $project_activity_info['0']->activity_name;?></a><?php }?></a>
                                         </td>*/?>
-                                        <td><?php echo $value->running_bill;?></td>
-                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->date);?></td>
+                                        <td><a href="<?php echo base_url('Admin/ExpenditureDetails/view/'.base64_encode($value->expenditure_id));?>"><?php echo $value->running_bill;?></a></td>
+                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->date_of_submit_bill);?>
+                                        </td>
+                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->date_of_payment);?></td>
                                         <td><?php echo $value->bill_no;?></td>
                                         <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank"
                                                 href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?>
                                         </td>
+                                        <td><?php $payment_mode_info = $this->PaymentModeMstModel->get_record($value->payment_mode_id);
+                                       if (!empty($payment_mode_info)) { echo $payment_mode_info['0']->payment_mode;} ?>
+                                        </td>
                                         <td class="text-right">
                                             <?php echo $this->customlib->inr_format($value->gross_amount);?></td>
                                         <td class="text-right">
                                             <?php echo $this->customlib->inr_format($value->net_amount_released);?></td>
-                                        <td><?php $payment_mode_info = $this->PaymentModeMstModel->get_record($value->payment_mode_id);
-                                       if (!empty($payment_mode_info)) { echo $payment_mode_info['0']->payment_mode;} ?>
-                                        </td>
+                                        <td class="text-right">
+                                            <?php echo $this->customlib->inr_format($value->amount_released);?></td>
+                                        <td class="text-right">
+                                            <?php echo $this->customlib->inr_format($value->other_expenses);?></td>
+                                        <td class="text-right">
+                                            <?php echo $this->customlib->inr_format($value->total_expenditure);?></td>
                                         <?php /*<td><?php $bank_info = $this->BankMstModel->get_record($value->bank_id);
                                         if (!empty($bank_info)) { echo $bank_info['0']->bank;} ?></td>
                                         <td><?php echo $value->transaction_no; ?></td>
-                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->transaction_date); ?>
-                                        </td>
+                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->transaction_date); ?></td>
                                         <td><?php echo $value->branch; ?></td>*/?>
                                         <td><?php echo $value->remarks;?></td>
                                         <?php /*<td class="text-center"><?php if($value->status_id == 'Pending') {?>
@@ -391,7 +405,7 @@
                                         <td class="text-center"><?php if ($value->is_cancel == 'Yes') { ?><span
                                                 class="badge badge-danger">Yes</span><?php } else if ($value->is_cancel == 'No') { ?><span
                                                 class="badge badge-primary">No</span><?php } ?></td>*/?>
-                                        <td class="text-center">
+                                        <?php /*<td class="text-center">
                                             <div class="list-icons">
                                                 <div class="list-icons-item dropdown">
                                                     <a href="#" class="list-icons-item dropdown-toggle caret-0"
@@ -415,7 +429,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td>*/?>
                                     </tr>
                                     <?php }?>
                                 </tbody>
