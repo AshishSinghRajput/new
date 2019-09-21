@@ -160,7 +160,7 @@
                                  <td><?php $project_activity_info = $this->ProjectsActivitesMstModel->get_record($login_info->department_id, '', $value->project_activity_id);
                                  if(!empty($project_activity_info)) { echo $project_activity_info['0']->activity_name;}?></td>*/?>
                                  <td><?php echo $value->running_bill;?></td>
-                                 <td><?php echo $this->customlib->get_DDMMYYYY($value->date);?></td>
+                                 <td><?= !empty($value->date) ?  $this->customlib->get_DDMMYYYY($value->date) : 'N/A';?></td>
                                  <td><?php echo $value->bill_no;?></td>
                                  <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank" href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?></td>
@@ -249,10 +249,10 @@
                                  <?php $select_project_id = '';
                                        if($this->input->post('submit')) {
                                           $select_project_id = $this->input->post('project_id');	 
-                                       } else if(!empty($expenditure_details_info)) {
+                                       } else if(!empty($expenditure_details_info->project_id)) {
                                           $select_project_id = $expenditure_details_info->project_id;
                                        } else {
-                                          $select_project_id = $project_id;
+                                          $select_project_id = '';
                                        }?>
                                  <option <?php if($select_project_id == '') {?>selected="selected"<?php }?> value="">Select Scheme</option>
                                  <?php 
@@ -537,8 +537,9 @@
    </div>
 </div>
 <script>
+   
     base_url = '<?= base_url() ?>';
     function changeUrl(project_id, project_activity_id) {
-        window.location.href = base_url + "Admin/ExpenditureDetails/add/" + project_id + "/" + project_activity_id;
+        // window.location.href = base_url + "Admin/ExpenditureDetails/add/" + project_id + "/" + project_activity_id;
     }
 </script>

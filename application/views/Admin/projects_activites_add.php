@@ -129,7 +129,22 @@
                      </div>
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
-                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Funds allocated <span class="text-hightlight">*</span></label>
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Division Name <span class="text-hightlight">*</span></label>
+                           <div class="col-md-12 col-sm-12 col-xs-12">
+                                <?php $division_value = '';
+                                       if($this->input->post('submit')) {
+                                          $division_value = $this->input->post('division');    
+                                       } else if(!empty($project_activity_info)) {
+                                          $division_value = $project_activity_info->division;
+                                       }?>
+                                 <input type="text" name="division" id="division" class="form-control"  placeholder="Enter division name" maxlength="255" value="<?= $division_value ?>" />
+                                 <span class="badge badge-danger m-1"><?php echo form_error('division'); ?></span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group row">
+                           <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Funds Allocated <span class="text-hightlight">*</span></label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <?php $funds_allocated_value = '0';
                                     if ($this->input->post('submit')) {
@@ -221,7 +236,7 @@
                                  <?php }
                                     }?>
                               </select>
-                              <span class="badge badge-danger m-1"><?php echo form_error('contractor_id');?></span>
+                               <span class="badge badge-danger m-1"><?php echo form_error('contractor_id');?></span>
                            </div>
                         </div>
                      </div>

@@ -128,12 +128,14 @@ class ActivitesUnderProject extends CI_Controller {
         
         $this->project_activity_validation(false);		
 		if($this->form_validation->run()==false) {
+
             if(!$this->input->post('submit')) {
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/projects_activites_add', $data);
                 $this->load->view('layout/footer', $data);
 
             } else {
+               
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/projects_activites_add', $data);
                 $this->load->view('layout/footer', $data);
@@ -141,11 +143,12 @@ class ActivitesUnderProject extends CI_Controller {
             }
         } else {
             $this->db->trans_start();
-
+ 
             $project_activity_data['department_id'] = $login_info->department_id;
             $project_activity_data['project_id'] = $this->input->post('project_id');
             $project_activity_data['activity_name'] = $this->input->post('activity_name'); 
             $project_activity_data['address'] = $this->input->post('address');       
+            $project_activity_data['division'] = $this->input->post('division');       
             $project_activity_data['funds_allocated'] = $this->input->post('funds_allocated');             
             $project_activity_data['sanction_amount'] = $this->input->post('sanction_amount');            
             $project_activity_data['dnit_amount'] = $this->input->post('dnit_amount');            
@@ -172,9 +175,9 @@ class ActivitesUnderProject extends CI_Controller {
             $project_activity_data['created_name'] = $login_info->name;
             $project_activity_data['created_user_agent'] = $this->customlib->load_agent();
             $project_activity_data['created_ip'] = $this->input->ip_address();
-            
+
             $project_activity_id = $this->ProjectsActivitesMstModel->add($project_activity_data);
-            
+           
             $this->db->trans_complete();
 
             if($project_activity_id > 0) {                    
@@ -251,7 +254,8 @@ class ActivitesUnderProject extends CI_Controller {
             $project_activity_data['department_id'] = $login_info->department_id; 
             $project_activity_data['project_id'] = $this->input->post('project_id');
             $project_activity_data['activity_name'] = $this->input->post('activity_name'); 
-            $project_activity_data['address'] = $this->input->post('address');       
+            $project_activity_data['address'] = $this->input->post('address');  
+             $project_activity_data['division'] = $this->input->post('division');     
             $project_activity_data['funds_allocated'] = $this->input->post('funds_allocated');             
             $project_activity_data['sanction_amount'] = $this->input->post('sanction_amount');            
             $project_activity_data['dnit_amount'] = $this->input->post('dnit_amount');            
@@ -348,6 +352,8 @@ class ActivitesUnderProject extends CI_Controller {
         $this->form_validation->set_rules('project_id', 'Scheme Name', 'trim|required');
         $this->form_validation->set_rules('activity_name', 'Projects', 'trim|required|max_length[255]');
         $this->form_validation->set_rules('address', 'Address'
+        , 'trim|max_length[255]');
+        $this->form_validation->set_rules('division', 'Division'
         , 'trim|max_length[255]');
         $this->form_validation->set_rules('funds_allocated', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
         $this->form_validation->set_rules('sanction_amount', 'Technical Sanction Amount', 'trim|required|numeric|min_length[1]|max_length[20]');

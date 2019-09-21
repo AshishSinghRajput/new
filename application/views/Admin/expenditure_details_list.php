@@ -223,9 +223,9 @@ function changeUrl(project_id, project_activity_id) {
                                                 href="<?php echo base_url('Admin/ActivitesUnderProject/view/'.base64_encode($value->project_activity_id));?>"><?php echo $project_activity_info['0']->activity_name;?></a><?php }?></a>
                                         </td>
                                         <td><a href="<?php echo base_url('Admin/ExpenditureDetails/view/'.base64_encode($value->expenditure_id));?>"><?php echo $value->running_bill;?></a></td>
-                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->date_of_submit_bill);?>
+                                        <td><?php if(($value->date_of_submit_bill != '') && ($value->date_of_submit_bill != '0000-00-00') && ($value->date_of_submit_bill != '1900-01-01'))  { echo $this->customlib->get_DDMMYYYY($value->date_of_submit_bill);}?>
                                         </td>
-                                        <td><?php echo $this->customlib->get_DDMMYYYY($value->date_of_payment);?></td>
+                                        <td><?php if(($value->date_of_payment != '') && ($value->date_of_payment != '0000-00-00') && ($value->date_of_payment != '1900-01-01'))  { echo $this->customlib->get_DDMMYYYY($value->date_of_payment);}?></td>
                                         <td><?php echo $value->bill_no;?></td>
                                         <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank"

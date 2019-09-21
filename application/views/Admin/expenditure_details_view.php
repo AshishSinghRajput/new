@@ -118,7 +118,7 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date of Submit Bill</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date_of_submit_bill);?>
+                           <?php if(($expenditure_details_info->date_of_submit_bill != '') && ($expenditure_details_info->date_of_submit_bill != '0000-00-00') && ($expenditure_details_info->date_of_submit_bill != '1900-01-01')) { echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date_of_submit_bill);}?>
                            </div>
                         </div>
                      </div> 
@@ -126,7 +126,7 @@
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date of Payment</label>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <?php echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date_of_payment);?>
+                              <?php if(($expenditure_details_info->date_of_payment != '') && ($expenditure_details_info->date_of_payment != '0000-00-00') && ($expenditure_details_info->date_of_payment != '1900-01-01')) { echo $this->customlib->get_DDMMYYYY($expenditure_details_info->date_of_payment);}?>
                            </div>
                         </div>
                      </div>  

@@ -74,6 +74,7 @@
             <div class="card-body">
                <form action="<?php echo base_url('Admin/ExpenditureDetails/edit/'.base64_encode($expenditure_id));?>" method="post" enctype="multipart/form-data" accept-charset="utf-8">
                   <div class="row">
+                     
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Description of Bills <span class="text-hightlight">*</span></label>
@@ -89,6 +90,7 @@
                            </div>
                         </div>
                      </div>
+
                      <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="form-group row">
                            <label for="input-21" class="col-md-12 col-sm-12 col-xs-12 col-form-label">Date<span class="text-hightlight">*</span></label>
@@ -96,10 +98,10 @@
                               <?php $date_value = date('Y-m-d');
                               if ($this->input->post('submit')) {
                                  $date_value = $this->input->post('date');
-                              } else if (!empty($expenditure_details_info)) {
+                              } else if (!empty($expenditure_details_info->date)) {
                                  $date_value = $expenditure_details_info->date;
                               } ?>
-                              <input type="date" required id="date" name="date" placeholder="Enter date" maxlength="50" class="form-control" value="<?php echo $date_value; ?>" />
+                              <input type="date" required id="date" name="date" placeholder="Enter date" maxlength="50" class="form-control" value="<?= !empty($date_value) ? $date_value : 'N/A'; ?>" />
                               <span class="badge badge-danger m-1"><?php echo form_error('date'); ?></span>
                            </div>
                         </div>
@@ -138,7 +140,7 @@
                                        } else if(!empty($expenditure_details_info)) {
                                           $select_project_activity_id = $expenditure_details_info->project_activity_id;
                                        }?>
-                                 <option <?php if($select_project_activity_id == '') {?>selected="selected"<?php }?> value="">Select Projects</option>
+                                <option <?php if($select_project_activity_id == '') {?>selected="selected"<?php }?> value="">Select Projects</option>
                                  <?php 
                                  if(!empty($project_activity_list)) {
                                        foreach ($project_activity_list as $value) { ?>

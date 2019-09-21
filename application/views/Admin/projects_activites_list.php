@@ -82,6 +82,7 @@
                               <th class="text-center">Scheme Name</th>
                               <th class="text-center">Projects</th>
                               <th class="text-center">Address</th>
+                              <th class="text-center">Division</th>
                               <th class="text-center">Name of Contractor</th>
                               <?php /*<th class="text-center">Name of Supervisor</th>*/?>
                               <th class="text-center">Funds allocated</th>
@@ -109,6 +110,7 @@
                                         if(!empty($projects_info)) { echo $projects_info['0']->project_name;}?></a></td>
                               <td><a href="<?php echo base_url('Admin/ActivitesUnderProject/view/'.base64_encode($value->project_activity_id));?>"><?php echo $value->activity_name;?></a></td>
                               <td><?php echo $value->address;?></td>
+                              <td><?php echo $value->division;?></td>
                               <td><?php $contractor_info = $this->UsersMstModel->get_record($value->contractor_id);
                                         if(!empty($contractor_info)) {?><a target="_blank" href="<?php echo base_url('Admin/Contractor/view/'.base64_encode($value->contractor_id));?>"><?php echo $contractor_info['0']->name;?></a><?php }?></td>
                               <?php /*<td><?php $supervisor_info = $this->UsersMstModel->get_record($value->supervisor_id);

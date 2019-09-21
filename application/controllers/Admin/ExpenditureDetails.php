@@ -155,12 +155,14 @@ class ExpenditureDetails extends CI_Controller {
 
         $this->expenditure_details_validation(false);		
 		if($this->form_validation->run()==false) {
+            //echo 'a'; die;
             if(!$this->input->post('submit')) {
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/expenditure_details_add', $data);
                 $this->load->view('layout/footer', $data);
 
             } else {
+              //  echo 'b'; die;
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/expenditure_details_add', $data);
                 $this->load->view('layout/footer', $data);
@@ -168,7 +170,7 @@ class ExpenditureDetails extends CI_Controller {
             }
         } else {
             $this->db->trans_start();
-            
+           // echo 'c'; die;
             $expenditure_details_data['department_id'] = $login_info->department_id;
             $expenditure_details_data['bill_no'] = $this->input->post('bill_no');             
             $expenditure_details_data['date'] = $this->customlib->get_YYYYMMDD($this->input->post('date'));
@@ -201,6 +203,7 @@ class ExpenditureDetails extends CI_Controller {
             $expenditure_details_data['created_name'] = $login_info->name;
             $expenditure_details_data['created_user_agent'] = $this->customlib->load_agent();
             $expenditure_details_data['created_ip'] = $this->input->ip_address();
+          
             
             $expenditure_id = $this->ExpenditureDetailsMstModel->add($expenditure_details_data);
             
@@ -268,14 +271,16 @@ class ExpenditureDetails extends CI_Controller {
 
         $this->expenditure_details_validation(false);		
 		if($this->form_validation->run()==false) {
+            echo validation_errors();
             if(!$this->input->post('submit')) {
-                $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id, '', '', $expenditure_id)['0'];
+               $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id, '', '',$expenditure_id)['0'];
 
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/expenditure_details_edit', $data);
                 $this->load->view('layout/footer', $data);
 
             } else {
+                 $data['expenditure_details_info'] = $this->ExpenditureDetailsMstModel->get_record($login_info->department_id, '', '',$expenditure_id)['0'];
                 $this->load->view('layout/header', $data);
                 $this->load->view('Admin/expenditure_details_edit', $data);
                 $this->load->view('layout/footer', $data);
@@ -383,10 +388,10 @@ class ExpenditureDetails extends CI_Controller {
         $this->form_validation->set_rules('project_id', 'Scheme Name', 'trim|required');
         //$this->form_validation->set_rules('project_activity_id', 'Projects', 'trim|required');
         
-        $this->form_validation->set_rules('running_bill', 'Running Bill', 'trim|required');
+        //$this->form_validation->set_rules('running_bill', 'Running Bill', 'trim|required');
 
-        $this->form_validation->set_rules('contractor_id', 'Contractor Name', 'trim|required');
-        $this->form_validation->set_rules('contractor_bank_id', 'Contractor Bank', 'trim|required');
+        //$this->form_validation->set_rules('contractor_id', 'Contractor Name', 'trim|required');
+       // $this->form_validation->set_rules('contractor_bank_id', 'Contractor Bank', 'trim|required');
         
         $this->form_validation->set_rules('gross_amount', 'Gross Amount', 'trim|required|numeric|min_length[1]|max_length[20]');
         $this->form_validation->set_rules('net_amount_released', 'Net Amount Payable', 'trim|required|numeric|min_length[1]|max_length[20]');

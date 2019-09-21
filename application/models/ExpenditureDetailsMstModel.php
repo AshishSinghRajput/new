@@ -22,7 +22,8 @@ class ExpenditureDetailsMstModel extends CI_Model {
     }
     
     public function add($data) {
-        $this->db->insert($this->table_name, $data);        
+        $this->db->insert($this->table_name, $data);    
+        echo $this->db->last_query(); die;    
 		return $this->db->insert_id(); 
     }
 
